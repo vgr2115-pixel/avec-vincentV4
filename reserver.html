@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Premier contact — AVEC VINCENT</title>
+<meta name="description" content="Indiquez le niveau, la matière et l’objectif de l’élève pour organiser un premier cours à Lyon ou en visioconférence.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body><a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="site-header"><nav class="navbar container" aria-label="Navigation principale">
+<a class="logo" href="index.html" aria-label="AVEC VINCENT — accueil">AVEC VINCENT<span class="logo-dot" aria-hidden="true">.</span></a>
+<button class="menu-button" aria-controls="site-menu" aria-expanded="false" aria-label="Ouvrir le menu"><span></span><span></span></button>
+<div class="site-menu" id="site-menu"><a href="cours.html">Cours & tarifs</a>
+<a href="credit-impot.html">Crédit d’impôt</a>
+<a href="a-propos.html">Parcours & méthode</a>
+<a aria-current="page" href="reserver.html" class="nav-cta">Réserver</a></div>
+</nav></header>
+<main id="contenu">
+<section class="page-intro container"><span class="eyebrow">Premier contact</span><h1>Parlons simplement<br><em>du besoin de l’élève.</em></h1><p class="lead">Indiquez le niveau, la matière et l’objectif. Cela suffit pour organiser la suite.</p></section>
+<section class="section section-first container booking-layout">
+<form class="contact-form" id="formulaire"><div class="form-grid">
+<div class="field"><label for="name">Votre nom <span aria-hidden="true">*</span></label><input id="name" name="name" autocomplete="name" required maxlength="120"></div>
+<div class="field"><label for="student">Prénom de l’élève</label><input id="student" name="student" autocomplete="off" maxlength="80"></div>
+<div class="field"><label for="email">E-mail <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+<div class="field"><label for="phone">Téléphone</label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="30"></div>
+<div class="field"><label for="level">Niveau <span aria-hidden="true">*</span></label><select id="level" name="level" required><option value="">Choisir</option><option>Seconde</option><option>Première</option><option>Terminale</option><option>Prépa ECG — 1re année</option><option>Prépa ECG — 2e année</option><option>Prépa ECG — khûbe</option><option>Autre</option></select></div>
+<div class="field"><label for="subject">Matière ou besoin <span aria-hidden="true">*</span></label><select id="subject" name="subject" required><option value="">Choisir</option><option>Mathématiques</option><option>Géopolitique / HGGSP</option><option>Anglais</option><option>Allemand</option><option>Méthodologie</option><option>BAC</option><option>BCE / ECRICOME</option><option>Autre / demande spécifique</option></select></div>
+<div class="field full"><label for="format">Format</label><select id="format" name="format"><option value="">Choisir</option><option>À domicile à Lyon</option><option>En visioconférence</option><option>Je ne sais pas encore</option></select></div>
+<div class="field full"><label for="objective">Objectif ou difficultés rencontrées <span aria-hidden="true">*</span></label><textarea id="objective" name="objective" required maxlength="1800" placeholder="Une notion à comprendre, un examen à préparer, un besoin particulier…"></textarea></div>
+</div><p class="form-note">* Champs obligatoires. Vos informations servent à répondre à votre demande et à préparer les cours. <a href="legal.html#confidentialite">Confidentialité</a>.</p>
+<button class="button button-primary" type="submit">Préparer ma demande <span aria-hidden="true">↗</span></button>
+<p class="form-note">Votre application e-mail s’ouvrira avec le message déjà préparé. Vous pourrez le vérifier avant de l’envoyer.</p>
+<div class="booking-terms"><span class="eyebrow">Modalités essentielles</span><ul><li>Les tarifs applicables sont ceux affichés sur le site, sauf demande particulière convenue ensemble.</li><li>Le règlement est prévu en espèces. Une autre organisation ne peut être retenue qu’après accord préalable entre le professeur et la famille.</li><li>Toute annulation, demande de report ou impossibilité de participer signalée moins de 48 heures avant le rendez-vous reste due intégralement.</li></ul><p>Ces échanges se font dans un esprit de bonne foi et de courtoisie. <a href="legal.html#cgv">Lire les conditions générales</a>.</p></div>
+<p class="form-status" role="status" aria-live="polite"></p>
+<details class="email-fallback"><summary>Votre messagerie ne s’ouvre pas ?</summary><p>Écrivez à <a href="mailto:contact@avecvincent.fr" data-contact="email">contact@avecvincent.fr</a>, ou copiez le récapitulatif ci-dessous après avoir rempli le formulaire.</p><button type="button" class="text-button" id="prepare-copy">Afficher le récapitulatif</button><label class="sr-only" for="email-draft">Récapitulatif à copier</label><textarea id="email-draft" readonly hidden></textarea></details>
+<noscript><p>Pour préparer automatiquement le message, activez JavaScript. Vous pouvez aussi écrire directement à contact@avecvincent.fr.</p></noscript>
+</form>
+<aside class="contact-card"><span class="eyebrow">Contact</span><h2>Une question avant de réserver ?</h2><p>Vous pouvez également me contacter directement.</p><dl><dt>E-mail</dt><dd><a href="mailto:contact@avecvincent.fr" data-contact="email">contact@avecvincent.fr</a></dd><dt>Téléphone</dt><dd><a href="tel:+33603872263" data-contact="phone">06 03 87 22 63</a></dd><dt>Cours</dt><dd>À domicile à Lyon<br>ou en visioconférence.</dd></dl></aside>
+</section></main>
+<footer class="site-footer"><div class="container footer-grid"><div><a class="logo" href="index.html">AVEC VINCENT<span class="logo-dot">.</span></a><p>Cours particuliers du lycée à la prépa.<br>À domicile à Lyon et en ligne partout en France.</p></div><nav aria-label="Navigation de pied de page"><span class="footer-label">Explorer</span><a href="cours.html">Cours & tarifs</a><a href="credit-impot.html">Crédit d’impôt</a><a href="a-propos.html">Parcours & méthode</a><a href="reserver.html">Réserver</a></nav><nav aria-label="Informations légales"><span class="footer-label">Informations</span><a href="legal.html#mentions">Mentions légales</a><a href="legal.html#cgv">Conditions générales</a><a href="legal.html#confidentialite">Confidentialité</a><a href="mailto:contact@avecvincent.fr" data-contact="email">contact@avecvincent.fr</a></nav></div><div class="container footer-bottom"><span>© <span data-year>2026</span> AVEC VINCENT</span><span>Lyon · Lycée · Prépa</span></div></footer>
+</body>
+</html>
