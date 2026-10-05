@@ -62,8 +62,11 @@ button,a,input,textarea,select,summary{-webkit-tap-highlight-color:transparent}
 .hero-copy .button-row{margin-top:28px}
 .trust-line{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:24px;font-size:.77rem;color:var(--muted)}
 .trust-line span::before{content:"";display:inline-block;width:5px;height:5px;background:var(--gold);border-radius:50%;margin:0 7px 2px 0}
-.hero-proof{max-width:435px;width:100%;justify-self:end}
-.tax-badge{display:flex;gap:18px;align-items:center;padding:22px 24px;background:#fffdf8;border:1px solid #e9e5db;border-radius:20px;box-shadow:0 12px 35px #14213112}
+.hero-visual{max-width:435px;width:100%;justify-self:end;display:flex;flex-direction:column;align-items:flex-end;gap:18px}
+.portrait{width:100%;margin:0}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:4 / 5;object-fit:cover;object-position:center 24%;border-radius:var(--radius);box-shadow:0 18px 42px #1421311a}
+.portrait figcaption{margin-top:10px;color:var(--muted);font-size:.75rem;text-align:right}
+.tax-badge{display:flex;gap:18px;align-items:center;width:min(100%,365px);padding:22px 24px;background:#fffdf8;border:1px solid #e9e5db;border-radius:20px;box-shadow:0 12px 35px #14213112}
 .tax-number{font-size:2.4rem;line-height:1;font-weight:750;letter-spacing:-.05em;color:var(--blue);white-space:nowrap}
 sup{font-size:.48em;vertical-align:super}
 .tax-badge>span:last-child{font-size:.85rem;font-weight:700;line-height:1.4}
@@ -140,7 +143,8 @@ summary{cursor:pointer;font-weight:650;line-height:1.5}
 .benefits article{border-top:1px solid var(--gold);padding-top:24px}
 .benefits h2{font-size:1.3rem;margin-bottom:14px}
 .benefits p{font-size:.92rem}
-.biography{display:block;max-width:900px}
+.biography{display:grid;grid-template-columns:minmax(230px,.65fr) minmax(0,1.35fr);align-items:start;gap:clamp(45px,7vw,100px)}
+.biography .portrait{position:sticky;top:100px}
 .timeline{margin-top:30px;border-left:1px solid var(--gold);padding-left:28px;display:grid;gap:26px}
 .timeline h3{font-size:1.05rem;margin-bottom:10px}
 .timeline p{font-size:.94rem}
@@ -169,6 +173,8 @@ input,textarea,select{width:100%;min-width:0;color:var(--ink);background:#fcfcfa
 textarea{min-height:140px;resize:vertical}
 .form-note{font-size:.75rem;margin:20px 0}
 .form-status{font-size:.85rem;margin-top:16px}
+.form-trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.contact-form button:disabled{opacity:.6;cursor:wait}
 .booking-terms{margin-top:24px;padding:22px 24px;border-radius:16px;background:#f3f0e8;border:1px solid #e5dfd2}
 .booking-terms .eyebrow{margin-bottom:12px}
 .booking-terms ul{margin:0;padding-left:20px;color:var(--muted);font-size:.82rem}
@@ -201,7 +207,7 @@ textarea{min-height:140px;resize:vertical}
 .footer-grid nav a{font-size:.82rem;color:#d1d9de}
 .footer-label{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#c6b185;margin-bottom:10px}
 .footer-bottom{border-top:1px solid #ffffff20;margin-top:35px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;font-size:.7rem;color:#afbdc7}
-@media(min-width:1600px){:root{--max:1360px}.home-hero{grid-template-columns:1.3fr .85fr}.hero-proof{max-width:460px}}
+@media(min-width:1600px){:root{--max:1360px}.home-hero{grid-template-columns:1.3fr .85fr}.hero-visual{max-width:460px}}
 @media(max-width:1000px){
 .container{width:calc(100% - 48px)}.site-menu{gap:18px}.site-menu a{font-size:.78rem}
 .home-hero{gap:38px}.hero-copy h1{font-size:3.2rem}.tax-badge{padding:16px;gap:12px}.tax-number{font-size:2rem}
@@ -212,9 +218,9 @@ textarea{min-height:140px;resize:vertical}
 @media(max-width:780px){
 :root{--header:70px}.menu-button{display:block;flex-shrink:0}.site-menu{display:none;position:absolute;top:var(--header);left:0;right:0;background:var(--bg);padding:20px 24px;border-bottom:1px solid var(--line);box-shadow:0 15px 25px #1421310a}
 .site-menu.open{display:flex;flex-direction:column;align-items:stretch;gap:0}.site-menu a{font-size:.95rem;padding:14px 12px}.site-menu .nav-cta{margin-top:10px;text-align:center}
-.home-hero{grid-template-columns:1fr;gap:34px;padding-top:34px;padding-bottom:45px}.hero-copy h1{font-size:clamp(2.7rem,7.5vw,4rem)}.hero-proof{max-width:390px;justify-self:center}
+.home-hero{grid-template-columns:1fr;gap:34px;padding-top:34px;padding-bottom:45px}.hero-copy h1{font-size:clamp(2.7rem,7.5vw,4rem)}.hero-visual{max-width:390px;justify-self:center;align-items:stretch}.hero-visual .tax-badge{align-self:stretch}
 .section{padding-block:65px}.section-first{padding-top:0}.page-intro{padding-top:40px;padding-bottom:40px}
-.method-layout,.split-heading,.booking-layout,.biography,.tax-overview,.tax-callout{grid-template-columns:1fr;gap:35px}
+.method-layout,.split-heading,.booking-layout,.tax-overview,.tax-callout{grid-template-columns:1fr;gap:35px}.biography{grid-template-columns:1fr;gap:35px}.biography .portrait{position:static;max-width:390px}
 .tax-example{border-left:0;border-top:1px solid var(--line);padding:22px 0 0}.tax-example>div{justify-content:flex-start}
 .contact-card{max-width:none}.benefits{gap:24px}.benefits h2{font-size:1.2rem}
 .legal-layout{grid-template-columns:1fr;gap:30px}.legal-nav{grid-template-columns:repeat(3,1fr);gap:16px;font-size:.8rem}
@@ -231,3 +237,4 @@ textarea{min-height:140px;resize:vertical}
 .contact-form{padding:23px}.contact-card{padding:26px}.footer-grid{grid-template-columns:1fr 1fr;gap:30px 20px}.footer-grid>div{grid-column:1/-1}.footer-grid nav a{font-size:.75rem;overflow-wrap:anywhere}.footer-bottom{flex-direction:column;gap:5px}.legal-nav{grid-template-columns:1fr;gap:0}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+

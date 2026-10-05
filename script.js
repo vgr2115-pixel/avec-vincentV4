@@ -4,7 +4,8 @@
 const CONFIG = Object.freeze({
   email: "contact@avecvincent.fr",
   phone: "06 03 87 22 63",
-  phoneLink: "+33603872263"
+  phoneLink: "+33603872263",
+  formEndpoint: "https://script.google.com/macros/s/AKfycbzNAstLJtUfojMetmC7GGik2IyV37oTgqphCY2Py3g1CPZSRmP89Msh_b7dDFlfqYKDDg/exec"
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -55,22 +56,28 @@ document.addEventListener("DOMContentLoaded", () => {
     : (aliases[params.get("matiere")] || params.get("matiere"));
   if (requested && Array.from(subject.options).some(option => option.value === requested)) subject.value = requested;
   const status = form.querySelector(".form-status");
-  const draft = document.querySelector("#email-draft");
-  const compose = () => {
-    const data = new FormData(form);
-    const labels = [["name","Votre nom"],["student","Prénom de l’élève"],["email","E-mail"],["phone","Téléphone"],["level","Niveau"],["subject","Matière ou besoin"],["format","Format"],["objective","Objectif ou difficultés"]];
-    return labels.map(([key,label]) => label + " : " + (String(data.get(key) || "").trim() || "Non précisé")).join("\n");
-  };
-  document.querySelector("#prepare-copy")?.addEventListener("click", () => {
-    draft.value = compose(); draft.hidden = false; draft.focus(); draft.select();
+  const submitButton = form.querySelector('button[type="submit"]');
+  const responseFrame = document.querySelector("#form-response");
+  let awaitingResponse = false;
+  form.action = CONFIG.formEndpoint;
+  responseFrame?.addEventListener("load", () => {
+    if (!awaitingResponse) return;
+    awaitingResponse = false;
+    form.reset();
+    if (submitButton) submitButton.disabled = false;
+    status.textContent = "Votre demande a bien été transmise. Un premier retour sera préparé par e-mail.";
   });
   form.addEventListener("submit", event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
-    const body = compose();
-    draft.value = body;
-    const title = "Demande de cours — " + subject.value;
-    status.textContent = "Le message est préparé. Vérifiez-le dans votre messagerie, puis envoyez-le. Rien n’est envoyé automatiquement.";
-    window.location.href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent(title) + "&body=" + encodeURIComponent(body);
+    if (!CONFIG.formEndpoint || CONFIG.formEndpoint.includes("REPLACE_WITH")) {
+      status.textContent = "Le formulaire est en cours de configuration. Vous pouvez écrire directement à " + CONFIG.email + ".";
+      return;
+    }
+    awaitingResponse = true;
+    if (submitButton) submitButton.disabled = true;
+    status.textContent = "Envoi de votre demande…";
+    HTMLFormElement.prototype.submit.call(form);
   });
 });
+

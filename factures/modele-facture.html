@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Modèle de facture — AVEC VINCENT</title>
+<style>
+:root{--ink:#142131;--muted:#6d7782;--line:#dfe4e8;--paper:#fff;--soft:#f4f6f6;--accent:#dba65b}
+*{box-sizing:border-box}body{margin:0;background:#eef1f2;color:var(--ink);font:15px/1.5 Arial,sans-serif}.workspace{display:grid;grid-template-columns:minmax(270px,360px) minmax(0,820px);gap:28px;max-width:1240px;margin:0 auto;padding:28px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;align-self:start;position:sticky;top:20px}.panel h1{font-size:1.3rem;margin:0 0 8px}.panel p{color:var(--muted);font-size:.88rem;margin:0 0 20px}.field{display:grid;gap:5px;margin:0 0 13px}.field label{font-weight:700;font-size:.78rem}.field input,.field textarea,.field select{width:100%;border:1px solid #cbd3d8;border-radius:8px;background:#fff;color:var(--ink);padding:9px 10px;font:inherit}.field textarea{min-height:64px;resize:vertical}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.button{border:0;border-radius:8px;background:var(--ink);color:#fff;padding:11px 15px;font-weight:700;cursor:pointer}.button.secondary{background:#e7ecee;color:var(--ink)}.hint{font-size:.75rem!important;margin-top:14px!important;margin-bottom:0!important}.invoice{background:#fff;box-shadow:0 18px 60px #14213118;padding:58px 64px;min-height:920px}.invoice-head{display:flex;justify-content:space-between;gap:25px;border-bottom:2px solid var(--ink);padding-bottom:28px}.brand{font-size:1.7rem;font-weight:800;letter-spacing:.04em}.brand span{color:var(--accent)}.issuer{color:var(--muted);font-size:.82rem;margin-top:13px}.invoice-title{text-align:right}.invoice-title h2{font-size:2.4rem;line-height:1;margin:0 0 10px}.invoice-title p{margin:4px 0;color:var(--muted)}.parties{display:grid;grid-template-columns:1fr 1fr;gap:35px;padding:30px 0}.parties h3{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}.parties p{margin:3px 0;white-space:pre-line}.table{width:100%;border-collapse:collapse;margin-top:10px}.table th{font-size:.72rem;letter-spacing:.08em;text-align:left;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line);padding:10px 8px}.table td{border-bottom:1px solid var(--line);padding:15px 8px}.table th:not(:first-child),.table td:not(:first-child){text-align:right}.totals{display:flex;justify-content:flex-end;margin-top:26px}.totals dl{display:grid;grid-template-columns:180px 120px;gap:7px 18px;margin:0;text-align:right}.totals dt{color:var(--muted)}.totals dd{margin:0;font-weight:700}.totals .grand{border-top:2px solid var(--ink);padding-top:12px;margin-top:7px;font-size:1.15rem}.totals dt.grand{color:var(--ink)}.tax-note{margin-top:35px;padding:13px 15px;background:var(--soft);font-size:.83rem}.footer-note{border-top:1px solid var(--line);margin-top:50px;padding-top:16px;color:var(--muted);font-size:.78rem}
+@media(max-width:900px){.workspace{grid-template-columns:1fr;padding:16px}.panel{position:static}.invoice{padding:35px 25px;min-height:auto}}
+@media(max-width:560px){.invoice-head,.parties{display:block}.invoice-title{text-align:left;margin-top:25px}.parties>div+div{margin-top:22px}.grid-2{grid-template-columns:1fr}.table{font-size:.78rem}.table th:nth-child(2),.table td:nth-child(2){display:none}.totals dl{grid-template-columns:145px 100px}}
+@media print{body{background:#fff}.workspace{display:block;padding:0;max-width:none}.panel{display:none}.invoice{box-shadow:none;padding:0;min-height:0}.invoice-head{padding-top:0}.tax-note{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="workspace">
+<aside class="panel no-print">
+<h1>Préparer une facture</h1>
+<p>Remplissez les champs puis imprimez la facture ou enregistrez-la en PDF.</p>
+<div class="field"><label for="invoiceNumber">Numéro de facture</label><input id="invoiceNumber" value="AV-2026-001"></div>
+<div class="grid-2"><div class="field"><label for="invoiceDate">Date d’émission</label><input id="invoiceDate" type="date"></div><div class="field"><label for="courseDate">Date du cours</label><input id="courseDate" type="date"></div></div>
+<div class="field"><label for="clientName">Client / famille</label><input id="clientName" placeholder="Nom et prénom"></div>
+<div class="field"><label for="clientAddress">Adresse du client</label><textarea id="clientAddress" placeholder="Adresse complète"></textarea></div>
+<div class="field"><label for="clientEmail">E-mail du client</label><input id="clientEmail" type="email" placeholder="facultatif"></div>
+<div class="field"><label for="student">Élève</label><input id="student" placeholder="Prénom de l’élève"></div>
+<div class="field"><label for="description">Prestation</label><input id="description" value="Cours particulier — séance individuelle"></div>
+<div class="grid-2"><div class="field"><label for="duration">Durée (h)</label><input id="duration" type="number" min="0" step="0.25" value="1"></div><div class="field"><label for="unitPrice">Prix affiché / h (€)</label><input id="unitPrice" type="number" min="0" step="0.01" value="36"></div></div>
+<div class="field"><label for="vatMode">Régime de TVA</label><select id="vatMode"><option value="franchise">Franchise en base — TVA non applicable</option><option value="20">TVA collectée — 20 %</option></select></div>
+<div class="field"><label for="payment">Modalités de paiement</label><input id="payment" value="Espèces à la fin du cours"></div>
+<div class="field"><label for="notes">Note éventuelle</label><textarea id="notes" placeholder="Report, demande particulière, etc."></textarea></div>
+<div class="actions"><button class="button" type="button" id="print">Imprimer / PDF</button><button class="button secondary" type="reset" id="reset">Réinitialiser</button></div>
+<p class="hint">Ne saisissez pas de données client dans le dépôt GitHub public. Utilisez une copie locale privée du modèle.</p>
+</aside>
+
+<main class="invoice" aria-label="Aperçu de la facture">
+<header class="invoice-head"><div><div class="brand">AVEC VINCENT<span>.</span></div><div class="issuer">Marié-Groblewski Vincent<br>Entrepreneur individuel · SIREN 130921380<br>SIRET 13092138000015<br>62 bis Avenue Leclerc, 69007 Lyon<br>contact@avecvincent.fr · 06 03 87 22 63</div></div><div class="invoice-title"><h2>FACTURE</h2><p>N° <strong data-out="invoiceNumber">AV-2026-001</strong></p><p>Émise le <span data-out="invoiceDate"></span></p></div></header>
+<section class="parties"><div><h3>Facturé à</h3><p><strong data-out="clientName">Nom et prénom du client</strong></p><p data-out="clientAddress">Adresse complète</p><p data-out="clientEmail"></p></div><div><h3>Prestation</h3><p>Élève : <strong data-out="student">Prénom de l’élève</strong></p><p>Date : <span data-out="courseDate"></span></p><p>Paiement : <span data-out="payment">Espèces à la fin du cours</span></p></div></section>
+<table class="table"><thead><tr><th>Description</th><th>Qté</th><th>Prix unitaire</th><th>Montant</th></tr></thead><tbody><tr><td data-out="description">Cours particulier — séance individuelle</td><td data-out="duration">1</td><td><span data-out="unitPrice">36,00 €</span></td><td><strong data-out="lineTotal">36,00 €</strong></td></tr></tbody></table>
+<section class="totals"><dl><dt class="ht-label">Total HT</dt><dd data-out="totalHt">—</dd><dt class="vat-label">TVA</dt><dd data-out="vat">Non applicable</dd><dt class="grand">Total à régler</dt><dd class="grand" data-out="totalTtc">36,00 €</dd></dl></section>
+<div class="tax-note" data-out="taxNote">TVA non applicable, art. 293 B du CGI</div>
+<div class="footer-note"><span data-out="notes"></span><br>Merci pour votre confiance. AVEC VINCENT · Cours particuliers du lycée à la prépa.</div>
+</main>
+</div>
+<script>
+(function(){
+  const fields=['invoiceNumber','invoiceDate','courseDate','clientName','clientAddress','clientEmail','student','description','duration','unitPrice','vatMode','payment','notes'];
+  const money=n=>new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(Number.isFinite(n)?n:0);
+  const dateText=value=>{if(!value)return '—';const [y,m,d]=value.split('-');return d+'/'+m+'/'+y};
+  const input=id=>document.getElementById(id);
+  const output=(id,value)=>document.querySelectorAll('[data-out="'+id+'"]').forEach(el=>el.textContent=value||'—');
+  function update(){
+    fields.forEach(id=>{const el=input(id);if(el&&id!=='vatMode')output(id,id==='invoiceDate'||id==='courseDate'?dateText(el.value):el.value)});
+    const qty=Math.max(0,Number(input('duration').value)||0), unit=Math.max(0,Number(input('unitPrice').value)||0), total=qty*unit, vatMode=input('vatMode').value;
+    output('duration',String(qty).replace('.',',')); output('unitPrice',money(unit)); output('lineTotal',money(total)); output('totalTtc',money(total));
+    if(vatMode==='20'){const ht=total/1.2, vat=total-ht;output('totalHt',money(ht));output('vat',money(vat));output('taxNote','TVA collectée au taux de 20 % — montant inclus dans le total TTC.');}
+    else{output('totalHt','—');output('vat','Non applicable');output('taxNote','TVA non applicable, art. 293 B du CGI');}
+  }
+  const now=new Date(), local=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);input('invoiceDate').value=local;input('courseDate').value=local;
+  document.querySelectorAll('.panel input,.panel textarea,.panel select').forEach(el=>el.addEventListener('input',update));
+  input('print').addEventListener('click',()=>window.print()); input('reset').addEventListener('click',()=>setTimeout(update,0)); update();
+})();
+</script>
+</body>
+</html>
+
