@@ -5,7 +5,7 @@ const CONFIG = Object.freeze({
   email: "contact@avecvincent.fr",
   phone: "06 03 87 22 63",
   phoneLink: "+33603872263",
-  formEndpoint: "https://script.google.com/macros/s/AKfycbzNAstLJtUfojMetmC7GGik2IyV37oTgqphCY2Py3g1CPZSRmP89Msh_b7dDFlfqYKDDg/exec"
+  formEndpoint: "https://script.google.com/macros/s/AKfycby7wINsDuFB15yDJCYJEE1Ya_2E6bA_VTM6MB31VdTW9Vag9DWaeOtDDbSQa-1fm-oW2g/exec"
 });
 
 document.addEventListener("DOMContentLoaded", () => {
