@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!awaitingResponse) return;
     finishRequest();
     form.reset();
-    status.textContent = "Votre demande a bien été transmise. Un premier retour sera préparé par e-mail.";
+    status.textContent = "Votre demande a bien été transmise.";
     showToast("Demande envoyée. Je vous répondrai rapidement par e-mail.");
   });
   form.addEventListener("submit", event => {
