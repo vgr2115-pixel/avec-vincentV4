@@ -34,25 +34,12 @@ function doPost(e) {
   const subject = 'Demande de cours — ' + data.subject + ' · ' + reference;
   const requestText = buildRequestText_(data, reference);
   const requestHtml = buildRequestHtml_(data, reference);
-
   GmailApp.sendEmail(OWNER_EMAIL, subject, requestText, {
     htmlBody: requestHtml,
     name: BUSINESS_NAME + ' — demandes de cours',
     replyTo: data.email
   });
   console.log('Demande envoyée à ' + OWNER_EMAIL + ' — référence ' + reference);
-
-  const replyText = buildReplyText_(data);
-  const replyHtml = buildReplyHtml_(data);
-  Utilities.sleep(1200);
-  const threads = GmailApp.search('in:anywhere to:' + OWNER_EMAIL + ' subject:' + reference + ' newer_than:5m', 0, 5);
-  if (threads.length) {
-    threads[0].createDraftReply(replyText, { htmlBody: replyHtml });
-    console.log('Brouillon créé dans le fil ' + reference);
-  } else {
-    GmailApp.createDraft(data.email, 'Re: ' + subject, replyText, { htmlBody: replyHtml });
-    console.log('Brouillon créé sans fil correspondant — référence ' + reference);
-  }
 
   return json({ ok: true, reference: reference });
 }
@@ -63,10 +50,6 @@ function clean_(value, maxLength) {
 
 function validEmail_(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function firstName_(name) {
-  return name.split(/\s+/)[0] || name;
 }
 
 function escapeHtml_(value) {
@@ -83,8 +66,7 @@ function buildRequestText_(data, reference) {
     'Nouvelle demande depuis le site AVEC VINCENT',
     'Référence : ' + reference,
     '',
-    'Nom : ' + data.name,
-    'Élève : ' + (data.student || 'Non précisé'),
+    'Nom et prénom : ' + data.name,
     'E-mail : ' + data.email,
     'Téléphone : ' + (data.phone || 'Non précisé'),
     'Niveau : ' + data.level,
@@ -101,39 +83,13 @@ function buildRequestText_(data, reference) {
 function buildRequestHtml_(data, reference) {
   return '<div style="font-family:Arial,sans-serif;line-height:1.6;color:#142131">' +
     '<p><strong>Nouvelle demande depuis le site AVEC VINCENT</strong><br>Référence : ' + escapeHtml_(reference) + '</p>' +
-    '<p><strong>Nom :</strong> ' + escapeHtml_(data.name) +
-    '<br><strong>Élève :</strong> ' + escapeHtml_(data.student || 'Non précisé') +
+    '<p><strong>Nom et prénom :</strong> ' + escapeHtml_(data.name) +
     '<br><strong>E-mail :</strong> ' + escapeHtml_(data.email) +
     '<br><strong>Téléphone :</strong> ' + escapeHtml_(data.phone || 'Non précisé') +
     '<br><strong>Niveau :</strong> ' + escapeHtml_(data.level) +
     '<br><strong>Matière :</strong> ' + escapeHtml_(data.subject) +
     '<br><strong>Format :</strong> ' + escapeHtml_(data.format || 'Non précisé') + '</p>' +
     '<p><strong>Objectif ou difficultés</strong><br>' + escapeHtml_(data.objective).replace(/\n/g, '<br>') + '</p>' +
-    '</div>';
-}
-
-function buildReplyText_(data) {
-  return [
-    'Bonjour ' + firstName_(data.name) + ',',
-    '',
-    'Merci pour votre message et pour les informations concernant ' + (data.student || 'votre enfant') + '. Je l’ai bien reçu.',
-    '',
-    'Je vais revenir vers vous pour vous proposer un premier échange et voir ensemble le format, le rythme et le créneau les plus adaptés à votre besoin.',
-    '',
-    'Bien cordialement,',
-    'Vincent',
-    BUSINESS_NAME,
-    BUSINESS_PHONE,
-    'contact@avecvincent.fr'
-  ].join('\n');
-}
-
-function buildReplyHtml_(data) {
-  return '<div style="font-family:Arial,sans-serif;line-height:1.65;color:#142131">' +
-    '<p>Bonjour ' + escapeHtml_(firstName_(data.name)) + ',</p>' +
-    '<p>Merci pour votre message et pour les informations concernant ' + escapeHtml_(data.student || 'votre enfant') + '. Je l’ai bien reçu.</p>' +
-    '<p>Je vais revenir vers vous pour vous proposer un premier échange et voir ensemble le format, le rythme et le créneau les plus adaptés à votre besoin.</p>' +
-    '<p>Bien cordialement,<br><strong>Vincent</strong><br>' + BUSINESS_NAME + '<br>' + BUSINESS_PHONE + '<br>contact@avecvincent.fr</p>' +
     '</div>';
 }
 
