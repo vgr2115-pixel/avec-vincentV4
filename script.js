@@ -58,26 +58,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const status = form.querySelector(".form-status");
   const submitButton = form.querySelector('button[type="submit"]');
   const responseFrame = document.querySelector("#form-response");
+  const toast = document.querySelector("#form-toast");
   let awaitingResponse = false;
+  let requestTimer;
+  let toastTimer;
+  let toastHideTimer;
+  const showToast = (message, kind = "success") => {
+    if (!toast) return;
+    clearTimeout(toastTimer);
+    clearTimeout(toastHideTimer);
+    toast.textContent = message;
+    toast.dataset.kind = kind;
+    toast.hidden = false;
+    requestAnimationFrame(() => toast.classList.add("is-visible"));
+    toastTimer = setTimeout(() => {
+      toast.classList.remove("is-visible");
+      toastHideTimer = setTimeout(() => { toast.hidden = true; }, 260);
+    }, kind === "pending" ? 15000 : 6500);
+  };
+  const finishRequest = () => {
+    awaitingResponse = false;
+    clearTimeout(requestTimer);
+    if (submitButton) submitButton.disabled = false;
+  };
   form.action = CONFIG.formEndpoint;
   responseFrame?.addEventListener("load", () => {
     if (!awaitingResponse) return;
-    awaitingResponse = false;
+    finishRequest();
     form.reset();
-    if (submitButton) submitButton.disabled = false;
     status.textContent = "Votre demande a bien été transmise. Un premier retour sera préparé par e-mail.";
+    showToast("Demande envoyée. Je vous répondrai rapidement par e-mail.");
   });
   form.addEventListener("submit", event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
     if (!CONFIG.formEndpoint || CONFIG.formEndpoint.includes("REPLACE_WITH")) {
       status.textContent = "Le formulaire est en cours de configuration. Vous pouvez écrire directement à " + CONFIG.email + ".";
+      showToast("Le formulaire est momentanément indisponible. Écrivez directement à " + CONFIG.email + ".", "error");
       return;
     }
     awaitingResponse = true;
     if (submitButton) submitButton.disabled = true;
     status.textContent = "Envoi de votre demande…";
+    showToast("Envoi de votre demande…", "pending");
+    requestTimer = setTimeout(() => {
+      if (!awaitingResponse) return;
+      finishRequest();
+      status.textContent = "La confirmation n’a pas pu être reçue. Vous pouvez écrire directement à " + CONFIG.email + ".";
+      showToast("Le délai de réponse est dépassé. Vérifiez votre boîte mail ou écrivez directement à " + CONFIG.email + ".", "error");
+    }, 15000);
     HTMLFormElement.prototype.submit.call(form);
   });
 });
-

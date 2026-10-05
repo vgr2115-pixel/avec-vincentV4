@@ -13,7 +13,6 @@ function authorizeGmail() {
 
 function doPost(e) {
   const p = (e && e.parameter) || {};
-  if (clean_(p.website, 80)) return json({ ok: true });
 
   const data = {
     name: clean_(p.name, 120),
@@ -27,6 +26,7 @@ function doPost(e) {
   };
 
   if (!data.name || !data.email || !data.level || !data.subject || !data.objective || !validEmail_(data.email)) {
+    console.warn('Demande refusée : champs obligatoires manquants ou e-mail invalide');
     return json({ ok: false, error: 'invalid_request' });
   }
 
@@ -40,6 +40,7 @@ function doPost(e) {
     name: BUSINESS_NAME + ' — demandes de cours',
     replyTo: data.email
   });
+  console.log('Demande envoyée à ' + OWNER_EMAIL + ' — référence ' + reference);
 
   const replyText = buildReplyText_(data);
   const replyHtml = buildReplyHtml_(data);
@@ -47,8 +48,10 @@ function doPost(e) {
   const threads = GmailApp.search('in:anywhere to:' + OWNER_EMAIL + ' subject:' + reference + ' newer_than:5m', 0, 5);
   if (threads.length) {
     threads[0].createDraftReply(replyText, { htmlBody: replyHtml });
+    console.log('Brouillon créé dans le fil ' + reference);
   } else {
     GmailApp.createDraft(data.email, 'Re: ' + subject, replyText, { htmlBody: replyHtml });
+    console.log('Brouillon créé sans fil correspondant — référence ' + reference);
   }
 
   return json({ ok: true, reference: reference });
@@ -138,4 +141,3 @@ function json(payload) {
   return ContentService.createTextOutput(JSON.stringify(payload))
     .setMimeType(ContentService.MimeType.JSON);
 }
-

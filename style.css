@@ -62,11 +62,11 @@ button,a,input,textarea,select,summary{-webkit-tap-highlight-color:transparent}
 .hero-copy .button-row{margin-top:28px}
 .trust-line{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:24px;font-size:.77rem;color:var(--muted)}
 .trust-line span::before{content:"";display:inline-block;width:5px;height:5px;background:var(--gold);border-radius:50%;margin:0 7px 2px 0}
-.hero-visual{max-width:435px;width:100%;justify-self:end;display:flex;flex-direction:column;align-items:flex-end;gap:18px}
+.hero-visual{position:relative;max-width:435px;width:100%;justify-self:end;display:flex;flex-direction:column;align-items:stretch}
 .portrait{width:100%;margin:0}
 .portrait img{display:block;width:100%;height:auto;aspect-ratio:4 / 5;object-fit:cover;object-position:center 24%;border-radius:var(--radius);box-shadow:0 18px 42px #1421311a}
-.portrait figcaption{margin-top:10px;color:var(--muted);font-size:.75rem;text-align:right}
-.tax-badge{display:flex;gap:18px;align-items:center;width:min(100%,365px);padding:22px 24px;background:#fffdf8;border:1px solid #e9e5db;border-radius:20px;box-shadow:0 12px 35px #14213112}
+.portrait figcaption{margin-top:10px;color:var(--muted);font-size:.75rem;text-align:left;padding-left:4px}
+.tax-badge{position:absolute;z-index:2;left:20px;right:20px;bottom:42px;display:flex;gap:18px;align-items:center;width:auto;padding:18px 20px;background:#fffdf8f2;border:1px solid #e9e5db;border-radius:18px;box-shadow:0 14px 35px #14213124;backdrop-filter:blur(8px)}
 .tax-number{font-size:2.4rem;line-height:1;font-weight:750;letter-spacing:-.05em;color:var(--blue);white-space:nowrap}
 sup{font-size:.48em;vertical-align:super}
 .tax-badge>span:last-child{font-size:.85rem;font-weight:700;line-height:1.4}
@@ -173,7 +173,10 @@ input,textarea,select{width:100%;min-width:0;color:var(--ink);background:#fcfcfa
 textarea{min-height:140px;resize:vertical}
 .form-note{font-size:.75rem;margin:20px 0}
 .form-status{font-size:.85rem;margin-top:16px}
-.form-trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.form-toast{position:fixed;z-index:20;right:24px;bottom:24px;max-width:min(430px,calc(100vw - 48px));padding:16px 20px;border:1px solid #ffffff30;border-radius:14px;background:var(--blue);color:white;box-shadow:0 16px 35px #14213130;font-size:.88rem;font-weight:700;line-height:1.45;opacity:0;transform:translateY(14px);transition:opacity .2s ease,transform .2s ease}
+.form-toast.is-visible{opacity:1;transform:translateY(0)}
+.form-toast[data-kind="pending"]{background:var(--ink)}
+.form-toast[data-kind="error"]{background:#9a3f35}
 .contact-form button:disabled{opacity:.6;cursor:wait}
 .booking-terms{margin-top:24px;padding:22px 24px;border-radius:16px;background:#f3f0e8;border:1px solid #e5dfd2}
 .booking-terms .eyebrow{margin-bottom:12px}
@@ -218,7 +221,7 @@ textarea{min-height:140px;resize:vertical}
 @media(max-width:780px){
 :root{--header:70px}.menu-button{display:block;flex-shrink:0}.site-menu{display:none;position:absolute;top:var(--header);left:0;right:0;background:var(--bg);padding:20px 24px;border-bottom:1px solid var(--line);box-shadow:0 15px 25px #1421310a}
 .site-menu.open{display:flex;flex-direction:column;align-items:stretch;gap:0}.site-menu a{font-size:.95rem;padding:14px 12px}.site-menu .nav-cta{margin-top:10px;text-align:center}
-.home-hero{grid-template-columns:1fr;gap:34px;padding-top:34px;padding-bottom:45px}.hero-copy h1{font-size:clamp(2.7rem,7.5vw,4rem)}.hero-visual{max-width:390px;justify-self:center;align-items:stretch}.hero-visual .tax-badge{align-self:stretch}
+.home-hero{grid-template-columns:1fr;gap:34px;padding-top:34px;padding-bottom:45px}.hero-copy h1{font-size:clamp(2.7rem,7.5vw,4rem)}.hero-visual{max-width:390px;justify-self:center}.hero-visual .tax-badge{left:12px;right:12px;bottom:38px;padding:16px 18px}
 .section{padding-block:65px}.section-first{padding-top:0}.page-intro{padding-top:40px;padding-bottom:40px}
 .method-layout,.split-heading,.booking-layout,.tax-overview,.tax-callout{grid-template-columns:1fr;gap:35px}.biography{grid-template-columns:1fr;gap:35px}.biography .portrait{position:static;max-width:390px}
 .tax-example{border-left:0;border-top:1px solid var(--line);padding:22px 0 0}.tax-example>div{justify-content:flex-start}
@@ -236,5 +239,5 @@ textarea{min-height:140px;resize:vertical}
 .tax-process li{padding-left:35px}.specific-card{padding:28px}.specific-card h2{font-size:1.8rem}
 .contact-form{padding:23px}.contact-card{padding:26px}.footer-grid{grid-template-columns:1fr 1fr;gap:30px 20px}.footer-grid>div{grid-column:1/-1}.footer-grid nav a{font-size:.75rem;overflow-wrap:anywhere}.footer-bottom{flex-direction:column;gap:5px}.legal-nav{grid-template-columns:1fr;gap:0}
 }
+@media(max-width:540px){.form-toast{right:16px;left:16px;bottom:16px;max-width:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
-

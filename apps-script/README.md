@@ -1,6 +1,6 @@
 # Réception du formulaire AVEC VINCENT
 
-Le fichier Code.gs reçoit le formulaire public, envoie la demande à contact@avecvincent.fr et prépare une réponse chaleureuse dans Gmail.
+Le fichier Code.gs reçoit le formulaire public, envoie la demande à contact@avecvincent.fr et prépare une réponse chaleureuse dans Gmail. Le formulaire ne dépend pas d’un champ invisible anti-spam : cela évite que l’autocomplétion d’un navigateur bloque par erreur une demande légitime.
 
 ## Déploiement
 
@@ -12,4 +12,3 @@ Le fichier Code.gs reçoit le formulaire public, envoie la demande à contact@av
 6. Tester avec une demande fictive avant la mise en ligne.
 
 Le script utilise Gmail du compte qui déploie l'application. Il ne contient aucun mot de passe ni clé secrète.
-
