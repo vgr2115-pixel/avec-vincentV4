@@ -744,3 +744,54 @@ body{overflow-x:hidden}
   .tax-badge{gap:9px}
   .tax-badge>span:last-child{font-size:.7rem!important}
 }
+
+/* Accueil : portraits lisibles et avantage SAP nettement détaché du fond. */
+.page-home .hero-team-portraits{
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:25px;
+}
+.page-home .hero-team-portraits figure,
+.page-home .hero-team-portraits figure+figure{
+  flex:0 0 94px;
+  margin:0;
+}
+.page-home .hero-team-portraits img{
+  width:94px;
+  height:94px;
+  border-width:4px;
+  box-shadow:0 10px 22px #14213120;
+}
+.page-home .hero-team-portraits figure:first-child img{object-position:center 24%}
+.page-home .hero-team-portraits figure:last-child img{object-position:center 42%}
+.page-home .hero-team-portraits figcaption{margin-top:8px}
+
+.page-home .hero-visual .tax-badge{
+  background:#fffdf9;
+  border-color:#dfe7e5;
+  box-shadow:0 15px 30px #1421311c;
+}
+
+.page-home .tax-callout{
+  background:linear-gradient(135deg,#edf5f6 0%,#e8f0f2 100%);
+  border-color:#cddde2;
+  box-shadow:0 16px 34px #1421310d;
+}
+.page-home .tax-callout .eyebrow{color:var(--blue)}
+.page-home .tax-callout .tax-example{
+  border:1px solid #dce6e6;
+  border-radius:18px;
+  padding:24px 26px;
+  background:#fffdf9;
+  box-shadow:0 10px 24px #1421310d;
+}
+.page-home .tax-callout .tax-example strong:last-child{font-size:3rem}
+
+@media(max-width:780px){
+  .page-home .hero-team-portraits{gap:13px;margin-bottom:20px}
+  .page-home .hero-team-portraits figure,
+  .page-home .hero-team-portraits figure+figure{flex-basis:78px}
+  .page-home .hero-team-portraits img{width:78px;height:78px}
+  .page-home .tax-callout .tax-example{padding:20px}
+  .page-home .tax-callout .tax-example strong:last-child{font-size:2.6rem}
+}
