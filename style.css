@@ -1127,3 +1127,267 @@ body{overflow-x:hidden}
     font-size:.72rem;
   }
 }
+
+/* Accueil : la confiance avant l'action.
+   Ordre éditorial : promesse, découverte de l'équipe, cadre SAP, contact. */
+.page-home .home-hero{
+  display:block;
+  width:min(calc(100% - 48px),var(--max));
+  padding:clamp(100px,13vw,168px) 0 clamp(64px,8vw,92px);
+}
+.page-home .hero-intro{max-width:860px}
+.page-home .hero-intro h1{
+  max-width:820px;
+  font-size:clamp(3.25rem,6.2vw,5.7rem);
+  line-height:1.01;
+}
+.page-home .hero-intro h1 em{display:block;margin-top:7px}
+.page-home .hero-intro .lead{
+  max-width:590px;
+  margin-top:29px;
+  font-size:1.05rem;
+  line-height:1.72;
+}
+.scroll-cue{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-top:54px;
+  color:var(--blue);
+  font-size:.78rem;
+  font-weight:750;
+  letter-spacing:.035em;
+}
+.scroll-cue:hover{color:var(--deep)}
+.scroll-cue span:last-child{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:30px;
+  height:30px;
+  border:1px solid #b9c9ce;
+  border-radius:50%;
+  font-size:1rem;
+  line-height:1;
+}
+.hero-trust-section{width:min(calc(100% - 48px),var(--max));margin-inline:auto}
+.hero-trust-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.12fr) minmax(310px,.7fr);
+  align-items:stretch;
+  gap:22px;
+}
+.hero-trust-layout .hero-team-panel{
+  min-height:0!important;
+  height:100%;
+  padding:34px!important;
+  background:#f1f5f4;
+  border:1px solid #d7e1e0;
+  border-radius:24px;
+  box-shadow:0 16px 38px #14213112;
+}
+.hero-trust-layout .hero-team-portraits{margin-bottom:28px}
+.hero-trust-layout .hero-team-panel p{max-width:500px}
+.hero-trust-layout .tax-badge{
+  position:static;
+  width:100%;
+  min-height:100%;
+  margin:0;
+  padding:26px;
+  justify-content:center;
+  background:#fffdf9;
+  border:1px solid #dfe7e5;
+  border-radius:22px;
+  box-shadow:0 14px 30px #14213112;
+}
+.hero-trust-layout .tax-number{font-size:3.35rem}
+.hero-trust-layout .tax-badge>span:last-child{font-size:.92rem}
+.hero-trust-layout .tax-badge small{font-size:.69rem}
+.hero-actions-section{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:40px;
+  width:min(calc(100% - 48px),var(--max));
+  margin:56px auto 0;
+  padding:30px 0 22px;
+  border-top:1px solid var(--line);
+}
+.hero-actions-section h2{
+  font-size:clamp(1.8rem,3vw,2.55rem);
+  line-height:1.08;
+}
+.hero-actions{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-shrink:0;
+}
+.hero-actions .text-link{margin:0;font-size:.85rem}
+.hero-actions-section + .container{margin-top:0}
+
+@media(prefers-reduced-motion:no-preference){
+  .scroll-cue span:last-child{animation:scroll-cue 1.8s ease-in-out infinite}
+  @keyframes scroll-cue{
+    0%,100%{transform:translateY(0);opacity:.65}
+    50%{transform:translateY(4px);opacity:1}
+  }
+}
+
+@media(max-width:780px){
+  .page-home .home-hero{
+    width:calc(100% - 32px);
+    padding:58px 0 56px;
+  }
+  .page-home .hero-intro{max-width:none;padding-inline:2px}
+  .page-home .hero-intro .eyebrow{margin-bottom:16px;font-size:.62rem;letter-spacing:.115em;line-height:1.55}
+  .page-home .hero-intro h1{
+    max-width:14ch;
+    font-size:clamp(2.45rem,10vw,3.25rem);
+    line-height:1.04;
+  }
+  .page-home .hero-intro h1 em{margin-top:4px}
+  .page-home .hero-intro .lead{
+    max-width:34ch;
+    margin-top:21px;
+    font-size:.94rem;
+    line-height:1.65;
+  }
+  .scroll-cue{margin-top:42px;font-size:.74rem}
+  .scroll-cue span:last-child{width:28px;height:28px}
+  .hero-trust-section{width:calc(100% - 32px)}
+  .hero-trust-layout{grid-template-columns:1fr;gap:14px}
+  .hero-trust-layout .hero-team-panel{padding:25px 22px 26px!important;border-radius:21px}
+  .hero-trust-layout .hero-team-portraits{gap:14px;margin-bottom:24px}
+  .hero-trust-layout .hero-team-panel .eyebrow{margin-bottom:10px;font-size:.61rem;letter-spacing:.115em}
+  .hero-trust-layout .hero-team-panel h2{max-width:320px;font-size:clamp(1.95rem,8vw,2.3rem);line-height:1.06}
+  .hero-trust-layout .hero-team-panel p{margin-top:14px;font-size:.85rem;line-height:1.62}
+  .hero-trust-layout .tax-badge{min-height:0;padding:16px;border-radius:17px}
+  .hero-trust-layout .tax-number{font-size:2.05rem}
+  .hero-trust-layout .tax-badge>span:last-child{font-size:.72rem}
+  .hero-trust-layout .tax-badge small{font-size:.59rem}
+  .hero-actions-section{
+    display:block;
+    width:calc(100% - 32px);
+    margin-top:44px;
+    padding:28px 0 34px;
+  }
+  .hero-actions-section h2{font-size:clamp(1.8rem,8vw,2.3rem)}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:8px;margin-top:20px}
+  .hero-actions .button{width:100%;min-height:50px}
+  .hero-actions .text-link{align-self:center;padding:2px 5px;font-size:.8rem}
+  .hero-actions-section + .container{margin-top:0}
+  .hero-actions-section + .container .credentials{border-radius:19px}
+  .hero-actions-section + .container .credentials>div{min-height:0;padding:19px 17px!important;text-align:center!important;align-items:center!important}
+  .hero-actions-section + .container .credentials .credential-kicker{margin-bottom:7px;text-align:center!important}
+  .hero-actions-section + .container .credentials strong{max-width:270px;font-size:.88rem;line-height:1.35}
+  .hero-actions-section + .container .credentials p{margin-top:5px;font-size:.72rem}
+}
+
+/* Accueil : une composition plus structurée pour équilibrer le ton humain. */
+.page-home .home-hero,
+.page-home .hero-trust-section,
+.page-home .hero-actions-section,
+.page-home > .container{
+  width:min(calc(100% - 48px),var(--max));
+}
+.page-home .home-hero{
+  padding-top:clamp(82px,10vw,132px);
+  padding-bottom:clamp(58px,7vw,82px);
+}
+.page-home .hero-intro{max-width:900px}
+.page-home .hero-intro h1{max-width:860px}
+.page-home .hero-intro .lead{max-width:640px}
+.hero-trust-section{margin-top:0}
+.hero-trust-layout{
+  grid-template-columns:minmax(0,1.05fr) minmax(330px,.75fr);
+  gap:32px;
+}
+.hero-trust-layout .hero-team-panel,
+.hero-trust-layout .tax-badge{
+  border-radius:16px;
+  box-shadow:none;
+}
+.hero-trust-layout .hero-team-panel{
+  display:grid;
+  grid-template-columns:minmax(150px,.42fr) minmax(0,1fr);
+  grid-template-rows:auto auto auto;
+  column-gap:32px;
+  align-items:start;
+  padding:38px!important;
+}
+.hero-trust-layout .hero-team-portraits{
+  grid-column:1;
+  grid-row:1 / span 3;
+  align-self:start;
+  flex-direction:column;
+  gap:15px;
+  margin:0;
+}
+.hero-trust-layout .hero-team-portraits figure{display:grid;grid-template-columns:74px 1fr;align-items:center;gap:12px}
+.hero-trust-layout .hero-team-portraits .hero-portrait-frame{width:74px;height:74px}
+.hero-trust-layout .hero-team-portraits figcaption{text-align:left;font-size:.75rem;font-weight:700;color:var(--ink)}
+.hero-trust-layout .hero-team-panel .eyebrow{grid-column:2;margin-bottom:12px}
+.hero-trust-layout .hero-team-panel h2{grid-column:2;max-width:390px}
+.hero-trust-layout .hero-team-panel p{grid-column:2;margin-top:17px;max-width:430px}
+.hero-trust-layout .tax-badge{
+  align-self:stretch;
+  min-height:100%;
+  padding:34px;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  gap:15px;
+}
+.hero-trust-layout .tax-badge .tax-number{font-size:4rem}
+.hero-trust-layout .tax-badge>span:last-child{font-size:1.02rem}
+.hero-trust-layout .tax-badge small{margin-top:8px;font-size:.72rem}
+.page-home > .container[data-reveal="proof"]{margin-top:32px}
+.page-home > .container[data-reveal="proof"] .credentials{border-radius:14px}
+.hero-actions-section{
+  margin-top:34px;
+  padding-top:28px;
+  padding-bottom:27px;
+}
+.hero-actions-section h2{max-width:430px}
+.hero-actions-section .button-primary{min-width:220px}
+
+@media(max-width:780px){
+  .page-home .home-hero,
+  .page-home .hero-trust-section,
+  .page-home .hero-actions-section,
+  .page-home > .container{
+    width:calc(100% - 32px);
+  }
+  .page-home .home-hero{padding-top:58px;padding-bottom:52px}
+  .hero-trust-layout{gap:16px}
+  .hero-trust-layout .hero-team-panel{
+    display:block;
+    padding:25px 22px 26px!important;
+    border-radius:14px;
+  }
+  .hero-trust-layout .hero-team-portraits{
+    display:flex;
+    flex-direction:row;
+    gap:14px;
+    margin-bottom:24px;
+  }
+  .hero-trust-layout .hero-team-portraits figure{display:block}
+  .hero-trust-layout .hero-team-portraits figcaption{display:none}
+  .hero-trust-layout .hero-team-portraits .hero-portrait-frame{width:78px;height:78px}
+  .hero-trust-layout .hero-team-panel .eyebrow{margin-bottom:10px}
+  .hero-trust-layout .tax-badge{
+    min-height:0;
+    padding:18px;
+    border-radius:14px;
+    flex-direction:row;
+    align-items:center;
+    gap:12px;
+  }
+  .hero-trust-layout .tax-badge .tax-number{font-size:2.15rem}
+  .hero-trust-layout .tax-badge>span:last-child{font-size:.75rem}
+  .hero-trust-layout .tax-badge small{margin-top:4px;font-size:.6rem}
+  .page-home > .container[data-reveal="proof"]{margin-top:22px}
+  .page-home > .container[data-reveal="proof"] .credentials{border-radius:14px}
+  .hero-actions-section{margin-top:26px;padding-top:26px;padding-bottom:32px}
+}
