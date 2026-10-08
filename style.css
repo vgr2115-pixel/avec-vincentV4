@@ -72,8 +72,10 @@ sup{font-size:.48em;vertical-align:super}
 .tax-badge>span:last-child{font-size:.85rem;font-weight:700;line-height:1.4}
 .tax-badge small{display:block;margin-top:6px;font-size:.67rem;font-weight:400;color:var(--muted)}
 .credentials{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fffdf9}
-.credentials>div{min-height:142px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 28px;border-right:1px solid var(--line)}
-.credentials>div:last-child{border:0}
+.credentials>div,.credentials>a{min-height:142px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 28px;border-right:1px solid var(--line)}
+.credentials>a{color:inherit}
+.credentials>a:hover{color:var(--ink);background:#f7f3eb}
+.credentials>div:last-child,.credentials>a:last-child{border:0}
 .credentials strong{font-size:.92rem;line-height:1.35;display:block;max-width:270px}
 .credentials p{margin-top:7px;font-size:.76rem;line-height:1.4}
 .credential-kicker{font-size:.65rem!important;line-height:1!important;color:var(--gold)!important;text-transform:uppercase;letter-spacing:.14em;font-weight:800;margin-bottom:12px}
@@ -286,19 +288,21 @@ textarea{min-height:140px;resize:vertical}
 .teacher-avatar-esteban img,.teacher-mini-esteban img{object-position:center 40%}
 
 /* Accueil évolutif : une présence humaine sans dépendre d’un nombre fixe de portraits. */
-.hero-team-panel{min-height:345px;padding:30px 32px 72px;background:linear-gradient(145deg,#eef3f2 0%,#f7f0e5 100%);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 18px 42px #14213112}
+.hero-team-panel{min-height:320px;padding:34px 34px 32px;background:linear-gradient(145deg,#eef3f2 0%,#f7f0e5 100%);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 18px 42px #14213112}
 .hero-team-mark{display:grid;place-items:center;width:68px;height:68px;border-radius:50%;background:var(--blue);color:white;font-size:1.15rem;font-weight:800;letter-spacing:.08em;box-shadow:0 10px 20px #14213122}
 .hero-team-panel .eyebrow{margin-top:24px;margin-bottom:12px}
 .hero-team-panel h2{font-size:clamp(1.8rem,2.7vw,2.7rem)}
-.hero-team-panel p{max-width:330px;margin-top:16px;font-size:.92rem}
+.hero-team-panel p{max-width:370px;margin-top:16px;font-size:.92rem}
+.hero-team-footer{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-top:32px;padding-top:18px;border-top:1px solid #ffffffaa;color:var(--blue)}
+.hero-team-footer strong{font-size:.82rem}
+.hero-team-footer span{font-size:.7rem;color:var(--muted);text-align:right}
 .hero-team-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .hero-team-tags span{padding:7px 11px;border:1px solid #ffffffaa;border-radius:999px;background:#ffffff85;color:var(--blue);font-size:.7rem;font-weight:700}
 .hero-team-panel .text-link{margin-top:20px}
 .hero-visual .tax-badge{bottom:22px}
-.hero-team-panel{padding-bottom:105px}
 .hero-copy .button-row .text-link{margin-top:0}
 .hero-secondary-link{font-size:.86rem;align-self:center}
-@media(max-width:780px){.hero-team-panel{min-height:320px;padding:26px 26px 68px}.hero-team-mark{width:60px;height:60px}.hero-visual .tax-badge{bottom:18px}}
+@media(max-width:780px){.hero-team-panel{min-height:320px;padding:26px}.hero-team-mark{width:60px;height:60px}.hero-visual .tax-badge{bottom:18px}}
 
 .logo{font-size:1.02rem}.credentials>div{text-align:center}.credentials strong{max-width:280px;margin-inline:auto;line-height:1.35}.teacher-card{grid-template-columns:135px minmax(0,1fr)}.teacher-card-header{grid-column:2}.teacher-card-description{grid-column:1/-1;margin-top:2px;padding-top:24px;border-top:1px solid var(--line)}.teacher-card-description p{font-size:.94rem;max-width:940px}.teacher-highlights{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:18px;list-style:none;padding:22px 0 0;margin:0;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}.teacher-highlights li{padding:18px 20px;background:#f3f0e8;border-radius:14px}.teacher-highlights strong{color:var(--ink)}@media(max-width:780px){.teacher-card{grid-template-columns:110px minmax(0,1fr)}.teacher-card-header{grid-column:2}.teacher-highlights{grid-template-columns:1fr}}@media(max-width:540px){.logo{font-size:.96rem}.teacher-card{grid-template-columns:1fr}.teacher-card-header{grid-column:1}.teacher-card-description,.teacher-highlights{grid-column:1}}
 
@@ -323,7 +327,7 @@ textarea{min-height:140px;resize:vertical}
 /* Fiches professeurs : les séparateurs restent alignés sur écran large. */
 @media(min-width:781px){
   .teacher-card-grid{align-items:stretch}
-  .teacher-card{height:100%;grid-template-rows:180px 230px minmax(0,1fr)}
+  .teacher-card{height:100%;grid-template-rows:145px 165px minmax(0,1fr)}
   .teacher-card-header{min-height:0}
   .teacher-card-description{min-height:0;display:flex;align-items:flex-start}
   .teacher-highlights{align-content:start}
@@ -334,7 +338,7 @@ textarea{min-height:140px;resize:vertical}
 
 @media(max-width:780px){
   .credentials{grid-template-columns:1fr}
-  .credentials>div{min-height:0;border-right:0;border-bottom:1px solid var(--line);padding:20px 22px}
-  .credentials>div:last-child{border-bottom:0}
+  .credentials>div,.credentials>a{min-height:0;border-right:0;border-bottom:1px solid var(--line);padding:20px 22px}
+  .credentials>div:last-child,.credentials>a:last-child{border-bottom:0}
   .teacher-note-vincent{width:calc(100% - 48px);margin:-15px auto 35px}
 }
