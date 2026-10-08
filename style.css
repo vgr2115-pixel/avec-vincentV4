@@ -1680,3 +1680,11 @@ body{overflow-x:hidden}
   .page-home .hero-title-sub{max-width:15ch;font-size:.78em}
   .page-home .hero-intro .lead{margin-top:21px}
 }
+
+/* Séparation visuelle entre le module de confiance et les repères de l’offre. */
+.page-home .trust-zone + .container{
+  margin-top:clamp(28px,4vw,52px);
+}
+@media(max-width:780px){
+  .page-home .trust-zone + .container{margin-top:24px}
+}
