@@ -1579,3 +1579,26 @@ body{overflow-x:hidden}
   .trust-zone .hero-trust-section{width:calc(100% - 32px)}
   .trust-zone .trust-card{box-shadow:0 16px 34px #14213112}
 }
+
+/* Dernier réglage de l'accueil : présence typographique calme, repère statique. */
+.page-home .home-hero{min-height:clamp(520px,78svh,690px)}
+.page-home .hero-intro h1{max-width:700px;font-size:clamp(2.8rem,4.8vw,4.35rem);line-height:1.03}
+.page-home .hero-intro .lead{max-width:570px;font-size:1rem;line-height:1.7}
+.scroll-cue{margin-top:32px;cursor:default}
+.scroll-cue span.scroll-cue-line{
+  width:30px;
+  height:1px;
+  background:#aec0c5;
+}
+.scroll-cue-line::after{display:none}
+
+@media(max-width:900px){
+  .page-home .hero-intro h1{max-width:620px;font-size:clamp(2.45rem,7vw,3.35rem)}
+  .page-home .hero-intro .lead{max-width:560px}
+}
+@media(max-width:780px){
+  .page-home .home-hero{min-height:clamp(520px,78svh,660px);padding-top:28px;padding-bottom:30px}
+  .page-home .hero-intro h1{max-width:14ch;font-size:clamp(2.25rem,8vw,2.85rem);line-height:1.05}
+  .page-home .hero-intro .lead{max-width:34ch;font-size:.92rem;line-height:1.62}
+  .scroll-cue{margin-top:25px}
+}
