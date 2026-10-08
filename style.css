@@ -243,3 +243,29 @@ textarea{min-height:140px;resize:vertical}
 }
 @media(max-width:540px){.form-toast{right:16px;left:16px;bottom:16px;max-width:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+
+/* Équipe pédagogique */
+.teacher-pair{display:flex;justify-content:center;align-items:flex-end;gap:18px;padding:24px 18px 10px;background:linear-gradient(145deg,#e8f0f3,#f3eee4);border-radius:var(--radius);border:1px solid var(--line)}
+.teacher-mini{width:45%;margin:0;text-align:center}
+.teacher-mini img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;border:7px solid white;box-shadow:0 12px 26px #14213120}
+.teacher-mini-vincent img{object-position:center 24%}
+.teacher-mini-esteban img{object-position:center 27%}
+.teacher-mini figcaption{margin-top:10px;color:var(--ink);font-size:.78rem;font-weight:750}
+.teacher-pair-caption{text-align:center;margin:12px 0 0;font-size:.78rem;color:var(--muted)}
+.teacher-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.teacher-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:grid;grid-template-columns:135px minmax(0,1fr);gap:26px;align-items:start}
+.teacher-avatar{margin:0}
+.teacher-avatar img{display:block;width:135px;height:135px;object-fit:cover;border-radius:50%;border:6px solid #f1eee6;box-shadow:0 10px 22px #14213118}
+.teacher-avatar-vincent img{object-position:center 24%}
+.teacher-avatar-esteban img{object-position:center 27%}
+.teacher-card h2{font-size:1.8rem}
+.teacher-card .card-level{margin-top:8px}
+.teacher-card p{font-size:.9rem;margin-top:14px}
+.teacher-card ul{padding-left:18px;margin:16px 0 0;color:var(--muted);font-size:.86rem}
+.teacher-card li+li{margin-top:8px}
+.teacher-note{margin-top:28px;padding:18px 22px;border-left:3px solid var(--gold);background:#f3f0e8;color:var(--muted);font-size:.88rem}
+.biography .portrait img{aspect-ratio:1/1;object-fit:cover;object-position:center 24%;border-radius:50%;width:min(100%,310px);margin-inline:auto}
+.biography .portrait figcaption{text-align:center;padding-left:0}
+@media(max-width:780px){.teacher-card-grid{grid-template-columns:1fr}.teacher-card{grid-template-columns:110px minmax(0,1fr);padding:24px;gap:20px}.teacher-avatar img{width:110px;height:110px}}
+@media(max-width:540px){.teacher-pair{gap:10px;padding-inline:10px}.teacher-card{grid-template-columns:1fr}.teacher-avatar img{width:125px;height:125px}}
