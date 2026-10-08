@@ -1391,3 +1391,17 @@ body{overflow-x:hidden}
   .page-home > .container[data-reveal="proof"] .credentials{border-radius:14px}
   .hero-actions-section{margin-top:26px;padding-top:26px;padding-bottom:32px}
 }
+
+/* Tablette et petits écrans : empiler avant que la grille de confiance ne se comprime. */
+@media(min-width:781px) and (max-width:1050px){
+  .page-home .hero-trust-layout{grid-template-columns:1fr;gap:16px}
+  .page-home .hero-trust-layout .tax-badge{
+    min-height:0;
+    padding:22px 26px;
+    flex-direction:row;
+    align-items:center;
+    justify-content:flex-start;
+    gap:16px;
+  }
+  .page-home .hero-trust-layout .tax-badge .tax-number{font-size:2.7rem}
+}
