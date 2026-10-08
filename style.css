@@ -284,3 +284,15 @@ textarea{min-height:140px;resize:vertical}
 .teacher-card>div{display:flex;flex-direction:column}.teacher-card .teacher-credentials{margin-top:12px!important}.teacher-card ul{line-height:1.5}
 
 .teacher-avatar-esteban img,.teacher-mini-esteban img{object-position:center 40%}
+
+/* Accueil évolutif : une présence humaine sans dépendre d’un nombre fixe de portraits. */
+.hero-team-panel{min-height:345px;padding:30px 32px 72px;background:linear-gradient(145deg,#e8f0f3,#f3eee4);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 18px 42px #14213112}
+.hero-team-mark{display:grid;place-items:center;width:68px;height:68px;border-radius:50%;background:var(--blue);color:white;font-size:1.15rem;font-weight:800;letter-spacing:.08em;box-shadow:0 10px 20px #14213122}
+.hero-team-panel .eyebrow{margin-top:24px;margin-bottom:12px}
+.hero-team-panel h2{font-size:clamp(1.8rem,2.7vw,2.7rem)}
+.hero-team-panel p{max-width:330px;margin-top:16px;font-size:.92rem}
+.hero-team-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.hero-team-tags span{padding:7px 11px;border:1px solid #ffffffaa;border-radius:999px;background:#ffffff85;color:var(--blue);font-size:.7rem;font-weight:700}
+.hero-team-panel .text-link{margin-top:20px}
+.hero-visual .tax-badge{bottom:22px}
+@media(max-width:780px){.hero-team-panel{min-height:320px;padding:26px 26px 68px}.hero-team-mark{width:60px;height:60px}.hero-visual .tax-badge{bottom:18px}}
