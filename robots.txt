@@ -1,0 +1,1 @@
+User-agent: *\nAllow: /\nDisallow: /legal.html\nSitemap: https://vgr2115-pixel.github.io/avec-vincentV4/sitemap.xml\n
