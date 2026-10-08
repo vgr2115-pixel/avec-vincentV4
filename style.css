@@ -282,3 +282,5 @@ textarea{min-height:140px;resize:vertical}
 @media print{.skip-link{display:none!important}}
 
 .teacher-card>div{display:flex;flex-direction:column}.teacher-card .teacher-credentials{margin-top:12px!important}.teacher-card ul{line-height:1.5}
+
+.teacher-avatar-esteban img,.teacher-mini-esteban img{object-position:center 40%}
