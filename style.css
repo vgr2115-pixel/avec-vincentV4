@@ -310,3 +310,9 @@ textarea{min-height:140px;resize:vertical}
 .teacher-highlights li{padding:0 0 12px 4px;background:none;border-radius:0}
 .teacher-highlights li+li{margin-top:0}
 @media(max-width:780px){.teacher-highlights{grid-template-columns:1fr}}
+
+
+/* Fiches professeurs : repères communs entre les deux cartes. */
+.teacher-card-header{min-height:150px}
+.teacher-card-description{min-height:205px}
+@media(max-width:780px){.teacher-card-header{min-height:0}.teacher-card-description{min-height:0}}
