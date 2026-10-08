@@ -1686,7 +1686,6 @@ body{overflow-x:hidden}
 html,
 body{background:var(--ink);overscroll-behavior-y:none}
 main{background:var(--bg)}
-.page-home{padding-bottom:clamp(52px,6vw,80px)}
 
 /* Séparation visuelle entre le module de confiance et les repères de l’offre. */
 .page-home .trust-zone + .container{
