@@ -272,3 +272,11 @@ textarea{min-height:140px;resize:vertical}
 
 .teacher-credentials{font-size:.84rem!important;color:var(--ink)!important;margin-top:12px!important}
 .teacher-card strong{color:var(--ink)}
+
+
+/* Correction des portraits circulaires : neutralise la hauteur intrinsèque des photos verticales. */
+.teacher-mini img{width:clamp(130px,14vw,190px);height:clamp(130px,14vw,190px);aspect-ratio:1/1}
+.biography .portrait img{width:min(310px,70vw);height:min(310px,70vw);aspect-ratio:1/1}
+@media(max-width:780px){.teacher-mini img{width:155px;height:155px}}
+@media(max-width:540px){.teacher-mini img{width:130px;height:130px}}
+@media print{.skip-link{display:none!important}}
