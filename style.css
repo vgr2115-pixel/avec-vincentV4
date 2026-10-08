@@ -521,3 +521,13 @@ textarea{min-height:140px;resize:vertical}
   .subject-card:hover,.teacher-card:hover,.price-card:hover{transform:none;box-shadow:none}
   .course-row:hover{border-color:var(--gold)}
 }
+
+/* Ordre de lecture mobile : la page Cours donne d’abord le repère tarifaire. */
+@media(max-width:780px){
+  .page-courses{display:flex;flex-direction:column}
+  .page-courses>.page-intro{order:1}
+  .page-courses>.section.soft{order:2}
+  .page-courses>.section.section-first:not(:last-of-type){order:3}
+  .page-courses>.section.split-heading{order:4}
+  .page-courses>.section.section-first:last-of-type{order:5}
+}
