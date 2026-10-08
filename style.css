@@ -244,6 +244,30 @@ textarea{min-height:140px;resize:vertical}
 @media(max-width:540px){.form-toast{right:16px;left:16px;bottom:16px;max-width:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 
+/* Accueil : une hiérarchie plus aérée, sans modifier les arguments ni les textes. */
+@media(min-width:781px){
+  .home-hero{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(55px,7vw,110px);padding-top:78px;padding-bottom:72px}
+  .hero-copy h1{font-size:clamp(2.8rem,4vw,4.15rem);max-width:790px}
+  .hero-copy .lead{max-width:650px;margin-top:24px}
+  .hero-copy .button-row{margin-top:26px}
+  .hero-visual{max-width:450px}
+  .hero-team-panel{min-height:340px;padding:38px 38px 108px}
+  .hero-team-panel h2{max-width:300px}
+  .hero-visual .tax-badge{left:26px;right:26px;bottom:24px}
+  .home-hero + .container{margin-top:20px}
+  .home-hero + .container .credentials{border-left:0;border-right:0;border-radius:0;background:transparent}
+  .home-hero + .container .credentials>div{min-height:128px;padding:28px 34px}
+  .home-hero + .container .credentials strong{max-width:235px}
+  .home-hero + .container + .section{padding-top:120px}
+  .home-hero + .container + .section .section-heading{margin-bottom:56px}
+  .home-hero + .container + .section .subjects-grid{gap:24px}
+  .home-hero + .container + .section .subject-card{padding:36px 58px 36px 34px}
+  .method-section{padding-block:112px}
+  .method-section .method-layout{gap:110px}
+  .tax-callout{padding:48px 52px}
+  .closing{padding-top:60px;padding-bottom:110px}
+}
+
 
 /* Équipe pédagogique */
 .teacher-pair{display:flex;justify-content:center;align-items:flex-end;gap:18px;padding:24px 18px 10px;background:linear-gradient(145deg,#eef3f2 0%,#f7f0e5 100%);border-radius:var(--radius);border:1px solid var(--line)}
