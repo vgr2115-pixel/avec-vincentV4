@@ -358,3 +358,166 @@ textarea{min-height:140px;resize:vertical}
   .credentials>div{min-height:0;border-right:0;border-bottom:1px solid var(--line);padding:20px 22px}
   .credentials>div:last-child{border-bottom:0}
 }
+
+/* Refonte mobile-first : lecture, confort tactile et respiration. */
+@media(max-width:780px){
+  :root{--radius:18px}
+  body{font-size:15.5px;line-height:1.65;overflow-x:hidden}
+  .container{width:calc(100% - 36px)}
+  .site-header{box-shadow:0 5px 18px #14213108}
+  .navbar{gap:14px}
+  .logo{font-size:1rem;letter-spacing:.12em}
+  .menu-button{width:46px;height:46px;background:#fffdf9}
+  .site-menu{padding:12px 18px 18px;box-shadow:0 18px 28px #14213114}
+  .site-menu a{min-height:46px;display:flex;align-items:center}
+  .site-menu .nav-cta{justify-content:center}
+
+  .page-intro{padding-top:52px;padding-bottom:34px}
+  .page-intro .eyebrow{margin-bottom:14px}
+  .page-intro h1{font-size:clamp(2.35rem,10vw,3.25rem);line-height:1.04}
+  .page-intro .lead{margin-top:20px;font-size:.98rem;line-height:1.7}
+
+  .home-hero{gap:30px;padding-top:38px;padding-bottom:42px}
+  .hero-copy h1{font-size:clamp(2.45rem,11vw,3.35rem);line-height:1.02}
+  .hero-copy .lead{margin-top:20px;font-size:.98rem;line-height:1.7}
+  .hero-copy .button-row{flex-direction:column;align-items:stretch;margin-top:24px}
+  .hero-copy .button-row .button{width:100%;min-height:52px}
+  .hero-copy .hero-secondary-link{align-self:center;padding:4px 8px;font-size:.84rem}
+  .hero-visual{max-width:100%;width:100%}
+  .hero-team-panel{min-height:290px;padding:28px 24px 92px}
+  .hero-team-panel h2{font-size:clamp(2rem,9vw,2.5rem);line-height:1.04}
+  .hero-team-panel p{max-width:100%;margin-top:16px;font-size:.9rem;line-height:1.65}
+  .hero-visual .tax-badge{left:14px;right:14px;bottom:18px;padding:14px 16px;gap:12px;border-radius:15px}
+  .tax-number{font-size:2rem}
+  .tax-badge>span:last-child{font-size:.76rem;line-height:1.3}
+  .tax-badge small{margin-top:3px;font-size:.61rem}
+
+  .home-hero + .container{margin-top:4px}
+  .home-hero + .container .credentials{border-radius:18px;background:#fffdf9}
+  .home-hero + .container .credentials>div{display:block;min-height:0;padding:20px 18px!important;text-align:left!important}
+  .home-hero + .container .credentials>div:last-child{border-bottom:0}
+  .home-hero + .container .credentials .credential-kicker{display:block;margin-bottom:8px;text-align:left!important}
+  .home-hero + .container .credentials strong{max-width:none;font-size:.93rem}
+  .home-hero + .container .credentials p{margin-top:4px;font-size:.78rem}
+  .home-hero + .container + .section{padding-top:78px}
+  .home-hero + .container + .section .section-heading{margin-bottom:32px}
+
+  .section{padding-block:74px}
+  .section-first{padding-top:0}
+  .section-heading{margin-bottom:32px}
+  .section-heading p{margin-top:18px;font-size:.94rem}
+  .subjects-grid{gap:14px}
+  .subject-card{padding:24px 48px 24px 22px;border-radius:18px}
+  .subject-card h3{font-size:1.25rem}
+  .subject-card p{font-size:.87rem;line-height:1.6}
+  .exam-banner{margin-top:14px;padding:23px 22px;border-radius:18px}
+  .exam-banner h3{font-size:1.15rem}
+  .exam-banner p{font-size:.83rem}
+
+  .method-section{padding-block:76px}
+  .method-layout{gap:34px}
+  .method-layout>div>p{margin-top:18px;font-size:.94rem}
+  .method-list li{padding:18px 0 18px 43px}
+  .method-list h3{font-size:1.08rem}
+  .method-list p{font-size:.84rem;margin-top:5px}
+
+  .tax-callout{gap:28px;padding:26px 22px;border-radius:18px}
+  .tax-callout h2{font-size:clamp(1.85rem,8vw,2.35rem)}
+  .tax-callout p{font-size:.88rem;line-height:1.65}
+  .tax-example{padding-top:20px}
+  .tax-example strong{font-size:2.4rem}
+  .fine-print{font-size:.7rem;line-height:1.55}
+  .closing{padding-top:12px;padding-bottom:82px;gap:24px}
+  .closing h2{font-size:2rem}
+  .closing>.button{width:100%;min-height:52px}
+
+  .course-row{gap:12px;padding:30px 0}
+  .course-row h2{font-size:1.45rem}
+  .course-row p{font-size:.88rem;line-height:1.65}
+  .course-row .text-link{justify-self:start;margin-top:4px}
+  .pricing-grid{gap:14px}
+  .price-card{padding:23px 20px;border-radius:18px}
+  .price-card h3{font-size:1.45rem;margin-bottom:18px}
+  .price-line,.price-result{gap:14px;padding:15px 0}
+  .price-line strong,.price-result strong{font-size:1.65rem}
+  .price-line>span,.price-result>span{font-size:.8rem}
+  .price-result{margin-inline:-8px;padding-inline:10px}
+  .split-heading{gap:30px}
+  .faq-list details{padding:18px 0}
+  .faq-answer{font-size:.87rem;line-height:1.65}
+
+  .teacher-card-grid{gap:18px}
+  .teacher-card{display:block;padding:22px 20px;border-radius:20px}
+  .teacher-avatar{margin-bottom:20px}
+  .teacher-avatar img{width:116px;height:116px;margin-inline:auto}
+  .teacher-card-header{text-align:center}
+  .teacher-card h2{font-size:1.7rem}
+  .teacher-card .card-level{font-size:.65rem;line-height:1.55;margin-top:8px}
+  .teacher-card-description{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+  .teacher-card-description p{font-size:.88rem;line-height:1.65}
+  .teacher-highlights{gap:0;padding:20px 0 0 18px;font-size:.84rem;line-height:1.6}
+  .teacher-highlights li{padding:0 0 12px 4px}
+  .teacher-note{margin-top:18px;padding:16px 18px;font-size:.82rem;line-height:1.6}
+  .specific-card{padding:28px 22px;border-radius:18px;gap:24px}
+  .specific-card h2{font-size:1.8rem}
+  .specific-card p{font-size:.87rem}
+  .specific-card .button{width:100%;min-height:52px}
+
+  .benefits{gap:26px}
+  .benefits article{padding-top:20px}
+  .benefits h2{font-size:1.18rem}
+  .biography{gap:28px}
+  .biography .portrait img{width:min(240px,70vw);height:min(240px,70vw)}
+  .timeline{margin-top:22px;padding-left:20px;gap:22px}
+  .timeline p{font-size:.87rem}
+  .tax-overview{gap:28px;padding:25px 21px;border-radius:18px}
+  .tax-overview h2{font-size:1.75rem}
+  .example-row strong{font-size:2.15rem}
+  .tax-process li{padding-left:38px;padding-bottom:24px;margin-bottom:20px}
+  .tax-process p{font-size:.87rem;line-height:1.65}
+
+  .booking-layout{gap:20px}
+  .contact-form{padding:22px 18px;border-radius:18px}
+  .form-grid{gap:16px}
+  input,textarea,select{min-height:50px;padding:13px 14px;border-radius:11px}
+  textarea{min-height:150px}
+  .form-note{font-size:.72rem;line-height:1.55}
+  .form-actions{flex-direction:column;align-items:stretch;gap:10px}
+  .form-actions .button{width:100%;min-height:52px}
+  .form-actions>span{text-align:center}
+  .booking-terms{padding:14px 16px}
+  .contact-card{padding:25px 21px;border-radius:18px}
+  .contact-card h2{font-size:1.35rem}
+  .contact-card dd{font-size:.87rem}
+
+  .legal-layout{gap:28px}
+  .legal-nav{gap:0}
+  .legal-nav a{padding:14px 0}
+  .legal-content section{margin-bottom:42px}
+  .legal-content h2{font-size:1.7rem;padding-bottom:14px;margin-bottom:20px}
+  .legal-content p,.legal-content li{font-size:.88rem;line-height:1.7}
+
+  .site-footer{padding:42px 0 20px}
+  .footer-grid{gap:28px 18px}
+  .footer-grid p{font-size:.78rem}
+  .footer-grid nav{gap:8px}
+  .footer-grid nav a{font-size:.75rem;line-height:1.45}
+}
+
+@media(max-width:540px){
+  .container{width:calc(100% - 32px)}
+  .home-hero{padding-top:30px}
+  .hero-copy h1{font-size:clamp(2.3rem,11vw,3rem)}
+  .hero-team-panel{padding-inline:21px}
+  .tax-badge{left:12px!important;right:12px!important}
+  .tax-badge>span:last-child{font-size:.72rem}
+  .tax-badge small{font-size:.58rem}
+  .credential-kicker{font-size:.6rem!important}
+}
+
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .button,.subject-card,.teacher-card,.course-row,.price-card,.specific-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background-color .22s ease}
+  .button:hover{transform:translateY(-2px)}
+  .subject-card:hover,.teacher-card:hover,.price-card:hover{transform:translateY(-3px);box-shadow:0 12px 26px #14213110}
+  .course-row:hover{border-color:var(--gold)}
+}
