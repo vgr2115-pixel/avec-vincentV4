@@ -567,3 +567,180 @@ textarea{min-height:140px;resize:vertical}
   .page-home .home-hero + .container .credentials{border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;background:transparent}
   .page-home .home-hero + .container .credentials>div{padding:20px 4px!important}
 }
+
+/* Dernière couche de cohérence : accueil respirant et mobile-first sur tout le site. */
+:root{--max:1160px;--radius:22px;--header:76px}
+body{overflow-x:hidden}
+.container{width:min(calc(100% - 48px),var(--max))}
+.section{padding-block:clamp(60px,7vw,94px)}
+.page-intro{padding-top:clamp(56px,8vw,92px);padding-bottom:clamp(42px,6vw,68px)}
+.page-intro h1{max-width:900px}
+.page-intro .lead{max-width:720px}
+.site-header{height:var(--header)}
+.logo{font-size:1.08rem;letter-spacing:.13em}
+
+/* Accueil : une entrée en deux temps, sans texte masqué par le crédit d’impôt. */
+.page-home .home-hero{width:min(calc(100% - 48px),var(--max));grid-template-columns:minmax(0,1.06fr) minmax(360px,.76fr);gap:clamp(48px,8vw,100px);padding:clamp(60px,8vw,96px) 0 42px;background:transparent;border-radius:0;box-shadow:none;align-items:center}
+.page-home .hero-copy{max-width:760px}
+.page-home .hero-copy h1{max-width:800px;font-size:clamp(3.2rem,5vw,4.9rem);line-height:1}
+.page-home .hero-copy .lead{max-width:680px;margin-top:26px;font-size:1.03rem;line-height:1.78}
+.page-home .hero-copy .button-row{margin-top:30px}
+.page-home .hero-visual{max-width:470px;width:100%;justify-self:end}
+.page-home .hero-team-panel{min-height:0!important;padding:30px 30px 28px!important;background:linear-gradient(145deg,#eef3f2 0%,#f7f0e5 100%);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 18px 42px #14213112}
+.hero-team-portraits{display:flex;align-items:flex-end;gap:12px;margin-bottom:24px}
+.hero-team-portraits figure{margin:0;flex:0 0 78px;text-align:center}
+.hero-team-portraits figure+figure{margin-bottom:15px}
+.hero-team-portraits img{display:block;width:78px;height:78px;object-fit:cover;border:5px solid #fff;border-radius:50%;box-shadow:0 9px 20px #1421311c}
+.hero-team-portraits figure:first-child img{object-position:center 24%}
+.hero-team-portraits figure:last-child img{object-position:center 40%}
+.hero-team-portraits figcaption{margin-top:7px;color:var(--blue);font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.page-home .hero-team-panel .eyebrow{margin:0 0 10px}
+.page-home .hero-team-panel h2{max-width:360px;font-size:clamp(2rem,3vw,2.8rem);line-height:1.05}
+.page-home .hero-team-panel p{max-width:360px;margin-top:16px;font-size:.93rem;line-height:1.65}
+.page-home .hero-team-panel .text-link{margin-top:17px}
+.page-home .hero-visual .tax-badge{position:static;left:auto;right:auto;bottom:auto;width:100%;margin-top:14px;padding:18px 20px;box-shadow:0 14px 35px #14213118}
+.page-home .hero-visual .tax-number{font-size:2.45rem}
+.page-home .home-hero + .container{margin-top:24px}
+.page-home .home-hero + .container .credentials{border:1px solid var(--line);border-radius:20px;background:#fffdf9}
+.page-home .home-hero + .container .credentials>div{min-height:128px;padding:25px 28px}
+.page-home .home-hero + .container + .section{padding-top:clamp(76px,9vw,112px)}
+
+/* Modules communs : une hiérarchie légère, lisible et sans débordement. */
+.course-row{grid-template-columns:minmax(190px,.78fr) minmax(0,1.35fr) auto;gap:34px;padding:34px 0}
+.course-row p{max-width:640px}
+.course-row .text-link{white-space:nowrap}
+.specific-card{padding:38px 42px}
+.specific-card p{max-width:650px}
+.tax-callout{padding:42px 46px}
+.booking-layout{gap:42px}
+.contact-form,.contact-card,.price-card,.teacher-card,.tax-overview{border-radius:var(--radius)}
+.teacher-card{grid-template-rows:155px 210px minmax(0,1fr)}
+.teacher-card-header,.teacher-card-description{min-height:0}
+.teacher-card-description{padding-top:20px}
+.teacher-highlights{padding-top:20px}
+
+@media(min-width:781px){
+  .teacher-card-grid{align-items:stretch}
+  .teacher-card-description{display:flex;align-items:flex-start}
+}
+
+@media(max-width:780px){
+  :root{--header:70px;--radius:18px}
+  .container{width:calc(100% - 32px)}
+  body{font-size:15.5px;line-height:1.65}
+  .site-header{box-shadow:0 5px 18px #14213108}
+  .navbar{gap:14px}
+  .logo{font-size:.98rem;letter-spacing:.11em}
+  .site-menu{padding:12px 18px 18px}
+  .site-menu a{min-height:48px;display:flex;align-items:center;font-size:.95rem}
+  .site-menu .nav-cta{justify-content:center}
+  .page-intro{padding-top:48px;padding-bottom:34px}
+  .page-intro h1{font-size:clamp(2.35rem,10vw,3.25rem);line-height:1.04}
+  .page-intro .lead{margin-top:18px;font-size:.97rem;line-height:1.7}
+  .section{padding-block:60px}
+
+  .page-home .home-hero{width:calc(100% - 32px);display:flex;flex-direction:column;align-items:stretch;gap:30px;padding:40px 0 34px}
+  .page-home .hero-copy h1{font-size:clamp(2.45rem,11vw,3.35rem);line-height:1.02}
+  .page-home .hero-copy .lead{margin-top:20px;font-size:.97rem;line-height:1.7}
+  .page-home .hero-copy .button-row{flex-direction:column;align-items:stretch;margin-top:24px;gap:9px}
+  .page-home .hero-copy .button{width:100%;min-height:52px}
+  .page-home .hero-copy .hero-secondary-link{align-self:center;padding:5px 8px}
+  .page-home .hero-visual{max-width:none;justify-self:stretch}
+  .page-home .hero-team-panel{padding:24px 22px 23px!important}
+  .hero-team-portraits{margin-bottom:20px}
+  .hero-team-portraits figure{flex-basis:70px}
+  .hero-team-portraits figure+figure{margin-bottom:11px}
+  .hero-team-portraits img{width:70px;height:70px}
+  .page-home .hero-team-panel h2{font-size:clamp(2rem,9vw,2.55rem)}
+  .page-home .hero-team-panel p{font-size:.89rem}
+  .page-home .hero-visual .tax-badge{margin-top:12px;padding:15px 16px;gap:12px}
+  .page-home .hero-visual .tax-number{font-size:2rem}
+  .page-home .hero-visual .tax-badge>span:last-child{font-size:.75rem;line-height:1.3}
+  .page-home .hero-visual .tax-badge small{font-size:.61rem;margin-top:3px}
+  .page-home .home-hero + .container{margin-top:14px}
+  .page-home .home-hero + .container .credentials{border-radius:18px}
+  .page-home .home-hero + .container .credentials>div{min-height:0;padding:19px 18px!important;text-align:left!important;align-items:flex-start}
+  .page-home .home-hero + .container .credentials .credential-kicker{margin-bottom:7px;text-align:left!important}
+  .page-home .home-hero + .container .credentials strong{max-width:none;font-size:.92rem}
+  .page-home .home-hero + .container .credentials p{margin-top:4px;font-size:.77rem}
+
+  .subjects-grid,.pricing-grid,.benefits,.form-grid{grid-template-columns:1fr}
+  .subject-card{padding:23px 48px 23px 21px;border-radius:17px}
+  .subject-card p{font-size:.86rem;line-height:1.6}
+  .exam-banner{padding:22px 20px;border-radius:17px}
+  .course-row{display:grid;grid-template-columns:1fr;gap:11px;padding:28px 0}
+  .course-row h2{font-size:1.4rem}
+  .course-row p{font-size:.87rem;line-height:1.65}
+  .course-row .text-link{justify-self:start;margin-top:3px;white-space:normal}
+  .pricing-grid{gap:14px}
+  .price-card{padding:22px 19px}
+  .price-card h3{font-size:1.4rem;margin-bottom:16px}
+  .price-line,.price-result{padding:14px 0;gap:12px}
+  .price-line strong,.price-result strong{font-size:1.6rem}
+  .price-line>span,.price-result>span{font-size:.79rem}
+  .tax-callout{grid-template-columns:1fr;gap:26px;padding:25px 21px;border-radius:18px}
+  .tax-callout h2{font-size:clamp(1.85rem,8vw,2.4rem)}
+  .tax-callout p{font-size:.87rem;line-height:1.65}
+  .tax-example{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}
+  .tax-example strong{font-size:2.35rem}
+  .specific-card{padding:27px 21px;border-radius:18px;gap:22px}
+  .specific-card h2{font-size:1.8rem}
+  .specific-card p{font-size:.86rem}
+  .specific-card .button{width:100%;min-height:52px}
+
+  .teacher-card-grid{grid-template-columns:1fr;gap:16px}
+  .teacher-card{display:block;padding:22px 19px;border-radius:18px}
+  .teacher-avatar{margin-bottom:19px}
+  .teacher-avatar img{width:116px;height:116px;margin-inline:auto}
+  .teacher-card-header{text-align:center}
+  .teacher-card h2{font-size:1.65rem}
+  .teacher-card .card-level{font-size:.64rem;line-height:1.55}
+  .teacher-card-description{margin-top:20px;padding-top:19px;border-top:1px solid var(--line)}
+  .teacher-card-description p{font-size:.87rem;line-height:1.65}
+  .teacher-highlights{grid-template-columns:1fr;gap:0;padding:19px 0 0 18px;font-size:.83rem;line-height:1.6}
+  .teacher-highlights li{padding-bottom:11px}
+  .teacher-note{font-size:.81rem;line-height:1.6}
+
+  .method-layout,.split-heading,.booking-layout,.tax-overview,.tax-callout{grid-template-columns:1fr;gap:30px}
+  .method-section{padding-block:68px}
+  .method-list li{padding:17px 0 17px 42px}
+  .method-list h3{font-size:1.07rem}
+  .method-list p{font-size:.83rem}
+  .biography{grid-template-columns:1fr;gap:28px}
+  .biography .portrait{max-width:280px;margin-inline:auto}
+  .timeline{margin-top:20px;padding-left:19px;gap:20px}
+  .timeline p{font-size:.86rem}
+  .tax-overview{padding:24px 20px}
+  .tax-process li{padding-left:37px;padding-bottom:23px;margin-bottom:19px}
+  .tax-process p{font-size:.86rem;line-height:1.65}
+
+  .booking-layout{gap:19px}
+  .contact-form{padding:21px 17px;border-radius:18px}
+  .form-grid{gap:15px}
+  input,textarea,select{min-height:50px;padding:13px 14px;border-radius:11px}
+  textarea{min-height:145px}
+  .form-actions{flex-direction:column;align-items:stretch;gap:9px}
+  .form-actions .button{width:100%;min-height:52px}
+  .form-actions>span{text-align:center}
+  .contact-card{padding:24px 20px;border-radius:18px}
+  .legal-layout{grid-template-columns:1fr;gap:25px}
+  .legal-nav{grid-template-columns:1fr;gap:0}
+  .legal-nav a{padding:13px 0}
+  .legal-content section{margin-bottom:40px}
+  .legal-content h2{font-size:1.65rem}
+  .legal-content p,.legal-content li{font-size:.86rem;line-height:1.7}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:27px 18px}
+  .footer-grid>div{grid-column:1/-1}
+  .footer-grid nav a{font-size:.74rem;line-height:1.45;overflow-wrap:anywhere}
+  .footer-bottom{flex-direction:column;gap:5px}
+}
+
+@media(max-width:390px){
+  .container{width:calc(100% - 28px)}
+  .logo{font-size:.9rem}
+  .page-home .home-hero{width:calc(100% - 28px)}
+  .page-home .hero-copy h1{font-size:clamp(2.2rem,11vw,2.8rem)}
+  .button{padding-inline:17px}
+  .tax-badge{gap:9px}
+  .tax-badge>span:last-child{font-size:.7rem!important}
+}
