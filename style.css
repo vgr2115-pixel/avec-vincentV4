@@ -300,3 +300,13 @@ textarea{min-height:140px;resize:vertical}
 .logo{font-size:1.02rem}.credentials>div{text-align:center}.credentials strong{max-width:280px;margin-inline:auto;line-height:1.35}.teacher-card{grid-template-columns:135px minmax(0,1fr)}.teacher-card-header{grid-column:2}.teacher-card-description{grid-column:1/-1;margin-top:2px;padding-top:24px;border-top:1px solid var(--line)}.teacher-card-description p{font-size:.94rem;max-width:940px}.teacher-highlights{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:18px;list-style:none;padding:22px 0 0;margin:0;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}.teacher-highlights li{padding:18px 20px;background:#f3f0e8;border-radius:14px}.teacher-highlights strong{color:var(--ink)}@media(max-width:780px){.teacher-card{grid-template-columns:110px minmax(0,1fr)}.teacher-card-header{grid-column:2}.teacher-highlights{grid-template-columns:1fr}}@media(max-width:540px){.logo{font-size:.96rem}.teacher-card{grid-template-columns:1fr}.teacher-card-header{grid-column:1}.teacher-card-description,.teacher-highlights{grid-column:1}}
 
 .biography .portrait{position:static}
+
+
+/* Accueil : module éditorial sans pastille décorative. */
+.hero-team-panel .eyebrow{margin-top:0}
+.hero-team-panel .hero-team-mark{display:none}
+/* Fiches professeurs : liste lisible, sans cartes imbriquées. */
+.teacher-highlights{display:grid;grid-template-columns:1fr 1fr;gap:0 34px;list-style:disc;padding:22px 0 0 20px;margin:0;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+.teacher-highlights li{padding:0 0 12px 4px;background:none;border-radius:0}
+.teacher-highlights li+li{margin-top:0}
+@media(max-width:780px){.teacher-highlights{grid-template-columns:1fr}}
