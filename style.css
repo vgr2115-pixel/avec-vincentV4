@@ -1697,17 +1697,23 @@ main{background:var(--bg)}
 
 /* Bulle finale : large et centrée sur desktop, compacte sur mobile. */
 .page-home .hero-actions-section{
-  width:min(calc(100% - 96px),1440px);
+  display:block;
+  width:min(calc(100% - 48px),1760px)!important;
   margin:52px auto 0!important;
 }
-.page-home .action-bubble{width:100%}
+.page-home .action-bubble{
+  width:100%;
+  max-width:none;
+  margin-inline:auto;
+  box-sizing:border-box;
+}
 .page-home{padding-bottom:clamp(52px,6vw,80px)}
 .page-home .hero-top-action{
   margin-top:28px;
   min-width:224px;
 }
 @media(max-width:780px){
-  .page-home .hero-actions-section{width:calc(100% - 32px);margin:34px auto 0!important}
+  .page-home .hero-actions-section{width:calc(100% - 32px)!important;margin:34px auto 0!important}
   .page-home{padding-bottom:52px}
   .page-home .hero-top-action{
     width:100%;
