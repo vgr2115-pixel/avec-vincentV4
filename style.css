@@ -1590,6 +1590,7 @@ body{overflow-x:hidden}
 /* Contact : une bulle claire et chaleureuse, plutôt qu'une rangée isolée. */
 .hero-actions-section{
   margin-top:52px;
+  margin-bottom:clamp(56px,7vw,96px);
   padding:0;
   border:0;
 }
@@ -1611,7 +1612,7 @@ body{overflow-x:hidden}
 .action-bubble .text-link{white-space:nowrap}
 
 @media(max-width:780px){
-  .hero-actions-section{margin-top:34px}
+  .hero-actions-section{margin-top:34px;margin-bottom:52px}
   .action-bubble{
     display:block;
     padding:25px 21px 23px;
