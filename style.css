@@ -1698,7 +1698,7 @@ main{background:var(--bg)}
 /* Bulle finale : large et centrée sur desktop, compacte sur mobile. */
 .page-home .hero-actions-section{
   display:block;
-  width:min(calc(100% - 48px),1760px)!important;
+  width:min(calc(100% - 48px),980px)!important;
   margin:52px auto 0!important;
 }
 .page-home .action-bubble{
@@ -1720,4 +1720,144 @@ main{background:var(--bg)}
     min-height:52px;
     margin-top:23px;
   }
+}
+
+/* Accueil final : une entrée courte, une preuve immédiate, puis une seule zone d'action. */
+.page-home .home-hero{
+  display:block;
+  width:min(calc(100% - 48px),var(--max));
+  min-height:0;
+  padding-top:clamp(62px,8vw,104px);
+  padding-bottom:clamp(48px,6vw,76px);
+}
+.page-home .hero-intro{max-width:920px}
+.page-home .hero-intro h1{
+  max-width:790px;
+  font-size:clamp(3.05rem,5.2vw,4.65rem);
+  line-height:1.01;
+}
+.page-home .hero-intro .lead{
+  max-width:650px;
+  margin-top:23px;
+  font-size:1rem;
+  line-height:1.68;
+}
+.page-home .hero-top-action{margin-top:29px;min-width:224px}
+
+.page-home .trust-zone{
+  padding:clamp(54px,7vw,86px) 0 0;
+  border-radius:28px 28px 0 0;
+}
+.page-home .trust-zone .hero-trust-section{width:min(calc(100% - 48px),var(--max))}
+.page-home .trust-card{
+  display:block;
+  width:min(100%,1040px);
+  margin-inline:auto;
+  overflow:hidden;
+  border-radius:24px;
+  background:#ffffffd9;
+  border:1px solid #d4dfde;
+  box-shadow:0 18px 42px #14213112;
+}
+.page-home .trust-card-main{
+  display:grid;
+  grid-template-columns:210px minmax(0,1fr);
+  align-items:center;
+  gap:48px;
+  padding:42px 50px;
+}
+.page-home .trust-card-portraits{
+  display:flex;
+  justify-content:center;
+  gap:17px;
+  margin:0;
+}
+.page-home .trust-card-portraits .hero-portrait-frame{width:92px;height:92px}
+.page-home .trust-card-portraits figcaption{margin-top:8px;font-size:.64rem}
+.page-home .trust-card-copy .eyebrow{margin-bottom:11px}
+.page-home .trust-card-copy h2{max-width:520px;font-size:clamp(2.1rem,3.2vw,3rem);line-height:1.03}
+.page-home .trust-card-copy p{max-width:600px;margin-top:17px;font-size:.93rem;line-height:1.66}
+.page-home .trust-card-tax{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  min-height:0;
+  padding:17px 24px;
+  border-top:1px solid #d8e1e0;
+  border-left:0;
+  background:#fffdf9;
+}
+.page-home .trust-card-tax .tax-number{font-size:2.35rem}
+.page-home .trust-card-tax>span:last-child{font-size:.78rem}
+.page-home .trust-card-tax small{margin-top:3px;font-size:.62rem}
+.page-home .trust-zone + .container{
+  margin-top:clamp(32px,4vw,56px);
+}
+.page-home > .container[data-reveal="proof"] .credentials{border-radius:18px}
+
+/* Le dernier appel reste utile, mais ne devient jamais une large bande. */
+.page-home .hero-actions-section{
+  display:block;
+  width:min(calc(100% - 48px),860px)!important;
+  max-width:860px;
+  margin:clamp(58px,7vw,84px) auto 64px!important;
+  padding:0;
+  border:0;
+}
+.page-home .action-bubble{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:30px;
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:27px 31px;
+  border-radius:22px;
+  box-sizing:border-box;
+}
+.page-home .action-bubble h2{max-width:430px;font-size:clamp(1.8rem,2.7vw,2.35rem)}
+.page-home .action-bubble .hero-actions{margin:0}
+.page-home .action-bubble .button-primary{min-width:214px}
+
+/* Révélation sobre au scroll, sans effet sur le premier écran. */
+.js-reveal .page-home [data-reveal]{opacity:0!important;transform:translateY(18px);transition:opacity .55s ease,transform .65s cubic-bezier(.22,.75,.25,1)}
+.js-reveal .page-home [data-reveal].is-visible{opacity:1!important;transform:none}
+
+@media(max-width:780px){
+  .page-home .home-hero{
+    width:calc(100% - 32px);
+    padding-top:43px;
+    padding-bottom:43px;
+  }
+  .page-home .hero-intro h1{max-width:14ch;font-size:clamp(2.45rem,10vw,3.25rem);line-height:1.03}
+  .page-home .hero-intro .lead{max-width:34ch;margin-top:19px;font-size:.93rem;line-height:1.62}
+  .page-home .hero-top-action{width:auto;min-height:50px;margin-top:25px}
+  .page-home .trust-zone{padding-top:48px;border-radius:22px 22px 0 0}
+  .page-home .trust-zone .hero-trust-section{width:calc(100% - 32px)}
+  .page-home .trust-card{border-radius:20px}
+  .page-home .trust-card-main{display:block;padding:25px 22px 27px}
+  .page-home .trust-card-portraits{gap:17px;margin-bottom:24px}
+  .page-home .trust-card-portraits .hero-portrait-frame{width:84px;height:84px}
+  .page-home .trust-card-copy h2{font-size:clamp(2rem,8.5vw,2.45rem)}
+  .page-home .trust-card-copy p{margin-top:14px;font-size:.86rem;line-height:1.62}
+  .page-home .trust-card-tax{justify-content:flex-start;padding:16px 19px;gap:12px}
+  .page-home .trust-card-tax .tax-number{font-size:2.1rem}
+  .page-home .trust-card-tax>span:last-child{font-size:.72rem}
+  .page-home .trust-card-tax small{font-size:.58rem}
+  .page-home .trust-zone + .container{margin-top:26px}
+  .page-home .hero-actions-section{
+    width:calc(100% - 32px)!important;
+    margin:52px auto 44px!important;
+  }
+  .page-home .action-bubble{display:block;padding:24px 21px 23px;border-radius:20px}
+  .page-home .action-bubble h2{font-size:clamp(1.8rem,8vw,2.25rem)}
+  .page-home .action-bubble .hero-actions{margin-top:20px}
+  .page-home .action-bubble .button-primary{width:100%;min-height:50px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .js-reveal .page-home [data-reveal],
+  .js-reveal .page-home [data-reveal].is-visible{opacity:1!important;transform:none;transition:none}
 }

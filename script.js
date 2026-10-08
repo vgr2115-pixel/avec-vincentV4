@@ -43,6 +43,23 @@ document.addEventListener("DOMContentLoaded", () => {
     el.href = email ? "mailto:" + CONFIG.email : "tel:" + CONFIG.phoneLink;
   });
 
+  // Une seule animation discrète au défilement : le contenu reste lisible sans JS.
+  const revealItems = document.querySelectorAll("[data-reveal]");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (revealItems.length && !reducedMotion && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("js-reveal");
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      });
+    }, {rootMargin: "0px 0px -12% 0px", threshold: 0.08});
+    revealItems.forEach(item => revealObserver.observe(item));
+  } else {
+    revealItems.forEach(item => item.classList.add("is-visible"));
+  }
+
   const form = document.querySelector("#formulaire");
   if (!form) return;
   const subject = form.elements.namedItem("subject");
