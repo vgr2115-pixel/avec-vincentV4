@@ -976,6 +976,51 @@ body{overflow-x:hidden}
   .page-home .home-hero + .container{margin-top:0}
 }
 
+/* Accueil : conversion claire, preuve humaine immédiate, sans dépendance d’animation. */
+.page-home .hero-copy .button-row{
+  align-items:center;
+  gap:18px;
+  margin-top:30px;
+}
+.page-home .hero-copy .hero-secondary-link{margin:0;font-size:.85rem}
+.page-home .hero-team-panel p{max-width:430px}
+.page-home .hero-visual .tax-badge{margin-top:18px}
+
+@media(max-width:780px){
+  .page-home .home-hero{padding-top:44px;padding-bottom:50px}
+  .page-home .hero-copy .button-row{
+    align-items:stretch;
+    flex-direction:column;
+    gap:8px;
+    margin-top:24px;
+  }
+  .page-home .hero-copy .button{width:100%;min-height:50px}
+  .page-home .hero-copy .hero-secondary-link{
+    align-self:center;
+    padding:3px 5px;
+    font-size:.8rem;
+  }
+  .page-home .hero-visual{margin-top:48px}
+  .page-home .hero-team-panel p{max-width:32ch}
+  .page-home .hero-visual .tax-badge{margin-top:15px}
+}
+
+/* Apparition douce au défilement : uniquement opacité et translation, avec repli sans JS. */
+.reveal-ready [data-reveal]{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .62s ease,transform .62s cubic-bezier(.2,.7,.2,1);
+}
+.reveal-ready [data-reveal].is-visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal-ready [data-reveal],
+  .reveal-ready [data-reveal].is-visible{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
+
 /* Accueil : composition éditoriale plus calme, avec une hiérarchie nette sur mobile. */
 .page-home .hero-copy h1 em{display:block;margin-top:3px}
 .page-home .hero-team-panel{background:#f1f5f4;border-color:#d7e1e0;box-shadow:0 14px 32px #14213112}
