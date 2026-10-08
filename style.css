@@ -71,12 +71,12 @@ button,a,input,textarea,select,summary{-webkit-tap-highlight-color:transparent}
 sup{font-size:.48em;vertical-align:super}
 .tax-badge>span:last-child{font-size:.85rem;font-weight:700;line-height:1.4}
 .tax-badge small{display:block;margin-top:6px;font-size:.67rem;font-weight:400;color:var(--muted)}
-.credentials{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line);padding:26px 0}
-.credentials>div{padding-inline:28px;border-right:1px solid var(--line)}
-.credentials>div:first-child{padding-left:0}
+.credentials{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fffdf9}
+.credentials>div{min-height:142px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 28px;border-right:1px solid var(--line)}
 .credentials>div:last-child{border:0}
-.credentials strong{font-size:.96rem;display:block}
-.credentials span{font-size:.76rem;color:var(--muted)}
+.credentials strong{font-size:.92rem;line-height:1.35;display:block;max-width:270px}
+.credentials p{margin-top:7px;font-size:.76rem;line-height:1.4}
+.credential-kicker{font-size:.65rem!important;line-height:1!important;color:var(--gold)!important;text-transform:uppercase;letter-spacing:.14em;font-weight:800;margin-bottom:12px}
 .subjects-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:18px}
 .subject-card{position:relative;padding:30px 54px 30px 30px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);transition:transform .18s,border-color .18s}
 .subject-card:hover{transform:translateY(-3px);border-color:var(--gold);color:var(--ink)}
@@ -295,6 +295,9 @@ textarea{min-height:140px;resize:vertical}
 .hero-team-tags span{padding:7px 11px;border:1px solid #ffffffaa;border-radius:999px;background:#ffffff85;color:var(--blue);font-size:.7rem;font-weight:700}
 .hero-team-panel .text-link{margin-top:20px}
 .hero-visual .tax-badge{bottom:22px}
+.hero-team-panel{padding-bottom:105px}
+.hero-copy .button-row .text-link{margin-top:0}
+.hero-secondary-link{font-size:.86rem;align-self:center}
 @media(max-width:780px){.hero-team-panel{min-height:320px;padding:26px 26px 68px}.hero-team-mark{width:60px;height:60px}.hero-visual .tax-badge{bottom:18px}}
 
 .logo{font-size:1.02rem}.credentials>div{text-align:center}.credentials strong{max-width:280px;margin-inline:auto;line-height:1.35}.teacher-card{grid-template-columns:135px minmax(0,1fr)}.teacher-card-header{grid-column:2}.teacher-card-description{grid-column:1/-1;margin-top:2px;padding-top:24px;border-top:1px solid var(--line)}.teacher-card-description p{font-size:.94rem;max-width:940px}.teacher-highlights{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:18px;list-style:none;padding:22px 0 0;margin:0;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}.teacher-highlights li{padding:18px 20px;background:#f3f0e8;border-radius:14px}.teacher-highlights strong{color:var(--ink)}@media(max-width:780px){.teacher-card{grid-template-columns:110px minmax(0,1fr)}.teacher-card-header{grid-column:2}.teacher-highlights{grid-template-columns:1fr}}@media(max-width:540px){.logo{font-size:.96rem}.teacher-card{grid-template-columns:1fr}.teacher-card-header{grid-column:1}.teacher-card-description,.teacher-highlights{grid-column:1}}
@@ -316,3 +319,22 @@ textarea{min-height:140px;resize:vertical}
 .teacher-card-header{min-height:150px}
 .teacher-card-description{min-height:205px}
 @media(max-width:780px){.teacher-card-header{min-height:0}.teacher-card-description{min-height:0}}
+
+/* Fiches professeurs : les séparateurs restent alignés sur écran large. */
+@media(min-width:781px){
+  .teacher-card-grid{align-items:stretch}
+  .teacher-card{height:100%;grid-template-rows:180px 230px minmax(0,1fr)}
+  .teacher-card-header{min-height:0}
+  .teacher-card-description{min-height:0;display:flex;align-items:flex-start}
+  .teacher-highlights{align-content:start}
+}
+
+/* Complément de contenu visible sous les fiches, sans alourdir les cartes. */
+.teacher-note-vincent{width:min(calc(100% - 96px),var(--max));margin:-28px auto 42px}
+
+@media(max-width:780px){
+  .credentials{grid-template-columns:1fr}
+  .credentials>div{min-height:0;border-right:0;border-bottom:1px solid var(--line);padding:20px 22px}
+  .credentials>div:last-child{border-bottom:0}
+  .teacher-note-vincent{width:calc(100% - 48px);margin:-15px auto 35px}
+}
