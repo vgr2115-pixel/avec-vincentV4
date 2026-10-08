@@ -1590,7 +1590,7 @@ body{overflow-x:hidden}
 /* Contact : une bulle claire et chaleureuse, plutôt qu'une rangée isolée. */
 .hero-actions-section{
   margin-top:52px;
-  margin-bottom:clamp(56px,7vw,96px);
+  margin-bottom:0;
   padding:0;
   border:0;
 }
@@ -1612,7 +1612,7 @@ body{overflow-x:hidden}
 .action-bubble .text-link{white-space:nowrap}
 
 @media(max-width:780px){
-  .hero-actions-section{margin-top:34px;margin-bottom:52px}
+  .hero-actions-section{margin-top:34px;margin-bottom:0}
   .action-bubble{
     display:block;
     padding:25px 21px 23px;
@@ -1678,9 +1678,15 @@ body{overflow-x:hidden}
     line-height:1.02;
   }
   .page-home .hero-title-main{max-width:12ch}
-  .page-home .hero-title-sub{max-width:15ch;font-size:.78em}
+.page-home .hero-title-sub{max-width:15ch;font-size:.78em}
   .page-home .hero-intro .lead{margin-top:21px}
 }
+
+/* Le dernier espace reste dans la page, jamais après le footer. */
+html,
+body{background:var(--ink);overscroll-behavior-y:none}
+main{background:var(--bg)}
+.page-home{padding-bottom:clamp(52px,6vw,80px)}
 
 /* Séparation visuelle entre le module de confiance et les repères de l’offre. */
 .page-home .trust-zone + .container{
