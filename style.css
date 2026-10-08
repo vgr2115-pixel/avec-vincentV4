@@ -756,14 +756,30 @@ body{overflow-x:hidden}
   flex:0 0 94px;
   margin:0;
 }
-.page-home .hero-team-portraits img{
+.page-home .hero-portrait-frame{
+  display:block;
   width:94px;
   height:94px;
-  border-width:4px;
+  overflow:hidden;
+  border:4px solid #fff;
+  border-radius:50%;
+  background:#e8eeee;
   box-shadow:0 10px 22px #14213120;
+}
+.page-home .hero-team-portraits img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  transform:scale(1.1);
+  transform-origin:center 36%;
 }
 .page-home .hero-team-portraits figure:first-child img{object-position:center 24%}
 .page-home .hero-team-portraits figure:last-child img{object-position:center 42%}
+.page-home .hero-team-portraits figure:first-child img{transform:scale(1.18);transform-origin:center 38%}
+.page-home .hero-team-portraits figure:last-child img{transform:scale(1.07);transform-origin:center 40%}
 .page-home .hero-team-portraits figcaption{margin-top:8px}
 
 .page-home .hero-visual .tax-badge{
@@ -788,10 +804,139 @@ body{overflow-x:hidden}
 .page-home .tax-callout .tax-example strong:last-child{font-size:3rem}
 
 @media(max-width:780px){
-  .page-home .hero-team-portraits{gap:13px;margin-bottom:20px}
+  .page-home .home-hero{gap:24px;padding-top:30px;padding-bottom:28px}
+  .page-home .hero-copy .eyebrow{font-size:.63rem;letter-spacing:.12em;line-height:1.5;margin-bottom:14px}
+  .page-home .hero-copy h1{font-size:clamp(2.55rem,10vw,3.1rem);line-height:1.01;letter-spacing:-.055em}
+  .page-home .hero-copy .lead{margin-top:17px;max-width:34ch;font-size:.91rem;line-height:1.58}
+  .page-home .hero-copy .button-row{margin-top:21px;gap:6px}
+  .page-home .hero-copy .button{min-height:49px;font-size:.84rem}
+  .page-home .hero-copy .hero-secondary-link{font-size:.8rem}
+  .page-home .hero-team-panel{padding:21px 20px 20px!important}
+  .page-home .hero-team-portraits{gap:13px;margin-bottom:18px}
   .page-home .hero-team-portraits figure,
   .page-home .hero-team-portraits figure+figure{flex-basis:78px}
-  .page-home .hero-team-portraits img{width:78px;height:78px}
+  .page-home .hero-portrait-frame{width:78px;height:78px}
+  .page-home .hero-team-portraits figcaption{font-size:.61rem;margin-top:6px}
+  .page-home .hero-team-panel .eyebrow{font-size:.61rem;letter-spacing:.12em;margin-bottom:8px}
+  .page-home .hero-team-panel h2{font-size:clamp(2rem,8.4vw,2.35rem);line-height:1.04}
+  .page-home .hero-team-panel p{margin-top:12px;font-size:.84rem;line-height:1.55}
+  .page-home .hero-team-panel .text-link{margin-top:13px;font-size:.8rem}
+  .page-home .hero-visual .tax-badge{margin-top:9px;padding:14px 15px}
+  .page-home .hero-visual .tax-number{font-size:1.9rem}
+  .page-home .hero-visual .tax-badge>span:last-child{font-size:.71rem}
+  .page-home .hero-visual .tax-badge small{font-size:.58rem}
+  .page-home .home-hero + .container{margin-top:10px}
+  .page-home .home-hero + .container .credentials>div{padding:16px 17px!important}
+  .page-home .home-hero + .container .credentials .credential-kicker{font-size:.58rem!important;margin-bottom:5px}
+  .page-home .home-hero + .container .credentials strong{font-size:.87rem}
+  .page-home .home-hero + .container .credentials p{font-size:.71rem}
   .page-home .tax-callout .tax-example{padding:20px}
   .page-home .tax-callout .tax-example strong:last-child{font-size:2.6rem}
+}
+
+/* Accueil : composition éditoriale plus calme, avec une hiérarchie nette sur mobile. */
+.page-home .hero-copy h1 em{display:block;margin-top:3px}
+.page-home .hero-team-panel{background:#f1f5f4;border-color:#d7e1e0;box-shadow:0 14px 32px #14213112}
+.page-home .hero-team-panel h2{letter-spacing:-.055em}
+.page-home .hero-team-panel p{max-width:390px}
+.page-home .home-hero + .container{margin-top:38px}
+
+@media(max-width:780px){
+  .page-home .home-hero{
+    width:calc(100% - 32px);
+    gap:38px;
+    padding:44px 0 38px;
+  }
+  .page-home .hero-copy{padding-inline:2px}
+  .page-home .hero-copy .eyebrow{
+    max-width:100%;
+    margin-bottom:16px;
+    font-size:.62rem;
+    letter-spacing:.115em;
+    line-height:1.55;
+  }
+  .page-home .hero-copy h1{
+    max-width:17ch;
+    font-size:clamp(2.35rem,9vw,2.9rem);
+    line-height:1.04;
+    letter-spacing:-.06em;
+  }
+  .page-home .hero-copy .lead{
+    max-width:35ch;
+    margin-top:20px;
+    font-size:.92rem;
+    line-height:1.64;
+  }
+  .page-home .hero-copy .button-row{
+    gap:9px;
+    margin-top:25px;
+  }
+  .page-home .hero-copy .button{
+    min-height:50px;
+    font-size:.84rem;
+  }
+  .page-home .hero-copy .hero-secondary-link{
+    padding:3px 5px;
+    font-size:.8rem;
+  }
+  .page-home .hero-team-panel{
+    padding:25px 22px 25px!important;
+    border-radius:21px;
+    background:#f1f5f4;
+  }
+  .page-home .hero-team-portraits{
+    gap:14px;
+    margin-bottom:24px;
+  }
+  .page-home .hero-team-panel .eyebrow{
+    margin-bottom:10px;
+    font-size:.61rem;
+    letter-spacing:.115em;
+  }
+  .page-home .hero-team-panel h2{
+    max-width:320px;
+    font-size:clamp(1.95rem,8vw,2.3rem);
+    line-height:1.06;
+  }
+  .page-home .hero-team-panel p{
+    margin-top:14px;
+    font-size:.85rem;
+    line-height:1.62;
+  }
+  .page-home .hero-team-panel .text-link{
+    margin-top:15px;
+    font-size:.8rem;
+  }
+  .page-home .hero-visual .tax-badge{
+    margin-top:13px;
+    padding:15px 16px;
+    border-radius:17px;
+  }
+  .page-home .hero-visual .tax-number{font-size:2rem}
+  .page-home .hero-visual .tax-badge>span:last-child{font-size:.72rem}
+  .page-home .hero-visual .tax-badge small{font-size:.59rem}
+  .page-home .home-hero + .container{margin-top:34px}
+  .page-home .home-hero + .container .credentials{
+    border-color:#d7e1e0;
+    border-radius:19px;
+  }
+  .page-home .home-hero + .container .credentials>div{
+    min-height:0;
+    padding:19px 17px!important;
+    text-align:center!important;
+    align-items:center!important;
+  }
+  .page-home .home-hero + .container .credentials .credential-kicker{
+    margin-bottom:7px;
+    text-align:center!important;
+  }
+  .page-home .home-hero + .container .credentials strong{
+    max-width:270px;
+    font-size:.88rem;
+    line-height:1.35;
+  }
+  .page-home .home-hero + .container .credentials p{
+    margin-top:5px;
+    font-size:.72rem;
+  }
 }
