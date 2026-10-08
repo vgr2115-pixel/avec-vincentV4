@@ -1226,14 +1226,6 @@ body{overflow-x:hidden}
 .hero-actions .text-link{margin:0;font-size:.85rem}
 .hero-actions-section + .container{margin-top:0}
 
-@media(prefers-reduced-motion:no-preference){
-  .scroll-cue span:last-child{animation:scroll-cue 1.8s ease-in-out infinite}
-  @keyframes scroll-cue{
-    0%,100%{transform:translateY(0);opacity:.65}
-    50%{transform:translateY(4px);opacity:1}
-  }
-}
-
 @media(max-width:780px){
   .page-home .home-hero{
     width:calc(100% - 32px);
@@ -1551,14 +1543,6 @@ body{overflow-x:hidden}
   border-radius:99px;
   background:var(--gold);
 }
-@media(prefers-reduced-motion:no-preference){
-  .scroll-cue-line::after{animation:scroll-line 2.2s ease-in-out infinite}
-  @keyframes scroll-line{
-    0%,100%{transform:translateY(0);opacity:.45}
-    50%{transform:translateY(29px);opacity:1}
-  }
-}
-
 .trust-zone{
   position:relative;
   padding:clamp(72px,9vw,126px) 0 clamp(70px,8vw,110px);
@@ -1636,4 +1620,63 @@ body{overflow-x:hidden}
   .action-bubble h2{font-size:clamp(1.75rem,8vw,2.25rem)}
   .action-bubble .hero-actions{margin-top:21px}
   .action-bubble .text-link{white-space:normal}
+}
+
+/* Version finale : lecture immédiate, sans animation qui retarde les informations. */
+.reveal-ready .page-home [data-reveal],
+.reveal-ready .page-home [data-reveal].is-visible{
+  opacity:1!important;
+  transform:none!important;
+  transition:none!important;
+}
+.scroll-cue-line::after{display:none!important}
+.action-bubble p{margin-top:11px;font-size:.88rem;line-height:1.55}
+
+/* Accueil statique : aucun élément ne doit attendre le scroll ou glisser à l’écran. */
+.reveal-ready [data-reveal],
+.reveal-ready [data-reveal].is-visible,
+.page-home [data-reveal]{
+  opacity:1!important;
+  transform:none!important;
+  transition:none!important;
+  animation:none!important;
+}
+.page-home .scroll-cue,
+.page-home .scroll-cue *{
+  animation:none!important;
+  transition:none!important;
+}
+
+/* Titre d’accueil : une promesse principale, puis un sous-titre plus léger. */
+.page-home .hero-intro h1{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:13px;
+  max-width:820px;
+  font-size:clamp(3rem,5.4vw,4.65rem);
+  line-height:1;
+  letter-spacing:-.055em;
+}
+.page-home .hero-title-main,
+.page-home .hero-title-sub{display:block}
+.page-home .hero-title-sub{
+  color:var(--gold);
+  font-size:.72em;
+  line-height:1.04;
+  letter-spacing:-.05em;
+}
+.page-home .hero-intro .lead{margin-top:25px}
+
+@media(max-width:780px){
+  .page-home .home-hero{min-height:clamp(460px,68svh,570px)}
+  .page-home .hero-intro h1{
+    gap:10px;
+    max-width:100%;
+    font-size:clamp(2.45rem,10.2vw,3.2rem);
+    line-height:1.02;
+  }
+  .page-home .hero-title-main{max-width:12ch}
+  .page-home .hero-title-sub{max-width:15ch;font-size:.78em}
+  .page-home .hero-intro .lead{margin-top:21px}
 }

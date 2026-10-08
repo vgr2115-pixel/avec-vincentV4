@@ -43,24 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
     el.href = email ? "mailto:" + CONFIG.email : "tel:" + CONFIG.phoneLink;
   });
 
-  const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
-  if (revealItems.length) {
-    document.documentElement.classList.add("reveal-ready");
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reducedMotion || !("IntersectionObserver" in window)) {
-      revealItems.forEach(item => item.classList.add("is-visible"));
-    } else {
-      const revealObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        });
-      }, {rootMargin:"0px 0px -10% 0px", threshold:.12});
-      revealItems.forEach(item => revealObserver.observe(item));
-    }
-  }
-
   const form = document.querySelector("#formulaire");
   if (!form) return;
   const subject = form.elements.namedItem("subject");
