@@ -834,6 +834,148 @@ body{overflow-x:hidden}
   .page-home .tax-callout .tax-example strong:last-child{font-size:2.6rem}
 }
 
+/* Accueil : parcours en trois temps — promesse, confiance, action. */
+.page-home .home-hero{
+  grid-template-columns:minmax(0,1fr) minmax(390px,.82fr);
+  align-items:start;
+  gap:clamp(58px,8vw,112px);
+  padding:clamp(74px,9vw,112px) 0 clamp(68px,8vw,96px);
+}
+.page-home .hero-copy{
+  max-width:700px;
+  padding-top:clamp(20px,4vw,56px);
+}
+.page-home .hero-copy h1{
+  max-width:650px;
+  font-size:clamp(3.1rem,5vw,4.7rem);
+  line-height:1.02;
+}
+.page-home .hero-copy .lead{
+  max-width:520px;
+  margin-top:27px;
+  font-size:1.02rem;
+  line-height:1.72;
+}
+.page-home .hero-visual{
+  max-width:480px;
+  justify-self:end;
+}
+.page-home .hero-team-panel{
+  padding:32px 32px 30px!important;
+  background:#f1f5f4;
+  border:1px solid #d7e1e0;
+  border-radius:24px;
+  box-shadow:0 16px 38px #14213112;
+}
+.page-home .hero-team-portraits{margin-bottom:27px}
+.page-home .hero-team-panel .eyebrow{margin-bottom:11px}
+.page-home .hero-team-panel h2{
+  max-width:390px;
+  font-size:clamp(2.2rem,3.2vw,3rem);
+  line-height:1.04;
+}
+.page-home .hero-team-panel p{
+  max-width:390px;
+  margin-top:17px;
+  font-size:.94rem;
+  line-height:1.65;
+}
+.page-home .hero-visual .tax-badge{
+  position:static;
+  width:100%;
+  margin-top:16px;
+  padding:19px 22px;
+  background:#fffdf9;
+  border-color:#dfe7e5;
+  box-shadow:0 14px 30px #14213116;
+}
+.page-home .hero-actions{
+  display:flex;
+  align-items:center;
+  gap:21px;
+  margin-top:25px;
+}
+.page-home .hero-actions .text-link{margin:0;font-size:.85rem}
+
+@media(max-width:780px){
+  .page-home .home-hero{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:48px 0 52px;
+  }
+  .page-home .hero-copy{
+    max-width:none;
+    padding:0 2px;
+  }
+  .page-home .hero-copy .eyebrow{
+    margin-bottom:17px;
+    font-size:.62rem;
+    letter-spacing:.115em;
+    line-height:1.55;
+  }
+  .page-home .hero-copy h1{
+    max-width:16ch;
+    font-size:clamp(2.35rem,9.6vw,3.05rem);
+    line-height:1.04;
+    letter-spacing:-.06em;
+  }
+  .page-home .hero-copy .lead{
+    max-width:34ch;
+    margin-top:21px;
+    font-size:.93rem;
+    line-height:1.64;
+  }
+  .page-home .hero-visual{
+    max-width:none;
+    margin-top:50px;
+  }
+  .page-home .hero-team-panel{
+    padding:25px 22px 26px!important;
+    border-radius:21px;
+  }
+  .page-home .hero-team-portraits{margin-bottom:23px}
+  .page-home .hero-team-panel .eyebrow{
+    margin-bottom:10px;
+    font-size:.61rem;
+    letter-spacing:.115em;
+  }
+  .page-home .hero-team-panel h2{
+    max-width:300px;
+    font-size:clamp(1.95rem,8vw,2.3rem);
+    line-height:1.06;
+  }
+  .page-home .hero-team-panel p{
+    max-width:31ch;
+    margin-top:14px;
+    font-size:.85rem;
+    line-height:1.62;
+  }
+  .page-home .hero-visual .tax-badge{
+    margin-top:15px;
+    padding:15px 16px;
+    border-radius:17px;
+  }
+  .page-home .hero-visual .tax-number{font-size:2rem}
+  .page-home .hero-visual .tax-badge>span:last-child{font-size:.72rem}
+  .page-home .hero-visual .tax-badge small{font-size:.59rem}
+  .page-home .hero-actions{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+    margin-top:21px;
+  }
+  .page-home .hero-actions .button{width:100%;min-height:50px}
+  .page-home .hero-actions .text-link{
+    align-self:center;
+    padding:2px 5px;
+    font-size:.8rem;
+  }
+  .page-home .home-hero + .container{margin-top:0}
+}
+
 /* Accueil : composition éditoriale plus calme, avec une hiérarchie nette sur mobile. */
 .page-home .hero-copy h1 em{display:block;margin-top:3px}
 .page-home .hero-team-panel{background:#f1f5f4;border-color:#d7e1e0;box-shadow:0 14px 32px #14213112}
