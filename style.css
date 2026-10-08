@@ -531,3 +531,39 @@ textarea{min-height:140px;resize:vertical}
   .page-courses>.section.split-heading{order:4}
   .page-courses>.section.section-first:last-of-type{order:5}
 }
+
+/* Accueil : deux premiers modules repensés comme une introduction éditoriale. */
+.page-home .home-hero{
+  width:min(calc(100% - 48px),1360px);
+  max-width:none;
+  grid-template-columns:minmax(0,1.16fr) minmax(360px,.78fr);
+  gap:clamp(55px,8vw,120px);
+  padding:clamp(72px,8vw,108px) clamp(42px,7vw,92px) clamp(62px,7vw,88px);
+  background:linear-gradient(135deg,#edf3f2 0%,#f8f2e8 100%);
+  border-radius:32px;
+  box-shadow:0 22px 55px #1421310d;
+}
+.page-home .hero-copy{max-width:760px}
+.page-home .hero-copy h1{max-width:760px;font-size:clamp(3.1rem,5vw,5rem);line-height:.99}
+.page-home .hero-copy .lead{max-width:650px;font-size:1.02rem;line-height:1.8}
+.page-home .hero-visual{max-width:430px}
+.page-home .hero-team-panel{min-height:338px;padding:38px 36px 108px;background:#ffffff62;border-color:#ffffffaa;box-shadow:none}
+.page-home .hero-team-panel h2{max-width:320px}
+.page-home .hero-visual .tax-badge{left:22px;right:22px;bottom:22px;box-shadow:0 14px 35px #14213118}
+.page-home .home-hero + .container{margin-top:38px}
+.page-home .home-hero + .container .credentials{border-left:0;border-right:0;border-radius:0;background:transparent}
+.page-home .home-hero + .container .credentials>div{min-height:136px;padding:30px 32px}
+.page-home .home-hero + .container .credentials strong{max-width:250px}
+
+@media(max-width:780px){
+  .page-home .home-hero{width:calc(100% - 32px);grid-template-columns:1fr;gap:30px;padding:38px 20px 24px;border-radius:24px;box-shadow:0 14px 34px #1421310b}
+  .page-home .hero-copy h1{font-size:clamp(2.4rem,11vw,3.25rem);line-height:1.01}
+  .page-home .hero-copy .lead{font-size:.96rem;line-height:1.7}
+  .page-home .hero-visual{max-width:none}
+  .page-home .hero-team-panel{min-height:286px;padding:28px 22px 91px;background:#ffffff72}
+  .page-home .hero-team-panel h2{max-width:290px}
+  .page-home .hero-visual .tax-badge{left:13px;right:13px;bottom:17px}
+  .page-home .home-hero + .container{margin-top:28px}
+  .page-home .home-hero + .container .credentials{border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;background:transparent}
+  .page-home .home-hero + .container .credentials>div{padding:20px 4px!important}
+}
